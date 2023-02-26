@@ -23,7 +23,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin: 90px 0 0 0;
+    margin: 0px 0 30px 0;
 
     &__title {
       font-size: 38px;

@@ -1,5 +1,5 @@
 <template>
-  <div class="guides">
+  <div class="guides section-container">
     <blocks-guides-intro />
     <blocks-workers-card-list :data="data" @openModal="openModal" />
     <blocks-message-us class="guides__message-us" />
@@ -134,9 +134,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 1460px;
     margin: 0 auto;
-    padding: 0 40px 150px 40px;
 
     @media screen and (max-width: 1200px) {
       max-width: 680px;

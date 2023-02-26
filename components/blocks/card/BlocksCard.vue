@@ -96,6 +96,8 @@
     .img-card-wrapper {
       @media screen and (max-width: 1200px) {
         margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
       }
     }
 

@@ -47,7 +47,7 @@
       }
 
       @media screen and (max-width: 680px) {
-        width: 360px;
+        width: 100%;
         padding: 100px 30px 60px 30px;
       }
     }

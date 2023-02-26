@@ -94,6 +94,7 @@
       padding: 70px 0 0 0;
       border-top: 1px solid #C5B1B2;
       display: flex;
+      gap: 40px;
       justify-content: space-between;
 
       &_reversed {
@@ -112,21 +113,6 @@
       }
     }
 
-    &__card-image {
-      width: 35%;
-
-      @media screen and (max-width: 1200px) {
-        width: 50%;
-      }
-    }
-
-    &__info-panel {
-      width: 50%;
-
-      @media screen and (max-width: 1200px) {
-        width: 100%;
-      }
-    }
 
     &__product-type {
       font-size: 14px;

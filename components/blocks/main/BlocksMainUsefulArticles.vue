@@ -92,7 +92,11 @@ export default {
   }
 
   @media screen and (max-width: 680px) {
-    height: 350px;
+    height: auto;
+  }
+
+  p {
+    margin-bottom: 40px;
   }
 }
 

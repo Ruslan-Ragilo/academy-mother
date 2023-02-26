@@ -86,8 +86,8 @@ import '@fancyapps/ui/dist/fancybox.css'
     }
 
     &__image {
+      max-width: 332px;
       width: 100%;
-      height: 100%;
     }
 
     &__label {
