@@ -28,7 +28,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 1460px;
+    max-width: 1240px;
     margin: 0 auto;
     padding: 0 40px;
 

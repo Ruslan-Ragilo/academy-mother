@@ -11,7 +11,8 @@
     <div class="main-swiper__swiper-block">
       <swiper
         :space-between="40"
-        :breakpoints="{ 1200:{ slidesPerView: 4}, 680:{ slidesPerView: 2 }, 0:{ slidesPerView: 1 } }"
+        :breakpoints="{ 1200:{ slidesPerView: 4}, 610:{ slidesPerView: 2 }, 0:{ slidesPerView: 1 } }"
+        class="swiper"
       >
         <swiper-slide v-for="item in slidesArray">
           <elements-main-swiper-item
@@ -223,6 +224,16 @@ const slidesArray = [
     @media screen and (max-width: 1200px) {
       margin: 90px 0 0 0;
     }
+
+    .swiper {
+      @media screen and (max-width: 610px) {
+        width: 300px;
+        overflow: visible;
+      }
+    }
+    
+    
+    
 
     &__title {
       color: #644C5C;

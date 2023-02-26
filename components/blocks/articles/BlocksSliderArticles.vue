@@ -12,15 +12,15 @@
     }"
     :breakpoints="{
       1281: {
-        slidesPerView: 3,
+        slidesPerView: 3,       
         spaceBetween: 30
       },
       500: {
-        slidesPerView: 2,
+        slidesPerView: 2,       
         spaceBetween: 20
       },
       0: {
-        slidesPerView: 1,
+        slidesPerView: 1,       
         spaceBetween: 20
       },
 
@@ -28,7 +28,7 @@
     @swiper="onSwiper"
     @slideChange="onSlideChange"
   >
-    <swiper-slide class="slide" v-for="item in store.dataSwiper">
+    <swiper-slide class="slide" v-for="item in store.dataSwiper"> 
       <div class="slide-card">
         <p class="year">{{ item.years }}</p>
         <h2>{{ item.heading }}</h2>
@@ -135,7 +135,7 @@
     position: absolute;
     top: 50%;  /* position the top  edge of the element at the middle of the parent */
     // left: 50%; /* position the left edge of the element at the middle of the parent */
-    transform: translate(-50%);
+    transform: translate(-50%); 
 
     &::after {
       content: '';
@@ -174,7 +174,7 @@
   height: 423px;
   position: relative;
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1280px) {
     height: 452px;
   }
 

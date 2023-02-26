@@ -1,18 +1,18 @@
 <template>
-      <img v-if="width > 1200" :src="`/_nuxt/assets/images/${folder}/${index}desk.png`" alt="Вебинар">
-      <img v-if="width <= 1200" :src="`/_nuxt/assets/images/${folder}/${index}mob.png`" alt="Вебинар">
+      <img :src="'http://95.163.236.196:1337'+link" alt="Программа">
 </template>
+<style scoped>
+  img {
+     max-width: 100%;
+  }
+</style>
 <script>
  export default {
   props: {
-    folder: {
+    link: {
       type: String,
-      default: '',
-    },
-    index: {
-      type: Number,
-      default: null,
-    },
+      default: ''
+    }
   },
   data() {
     return {

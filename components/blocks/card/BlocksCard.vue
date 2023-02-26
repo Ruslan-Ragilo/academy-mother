@@ -6,21 +6,23 @@
 <template>
   <elements-popup>
     <div class="popup-content">
-      <h3>{{ data[indexForPopup].headingPopup }}</h3>
-      <p v-html="data[indexForPopup].contentPopup.split('—').map((el, i) => i !== 0 ? '<br /> —'+ el : null).join('')"></p>
+      <h3>Вы узнаете:</h3>
+      <ul>
+        <li v-for="itemList in data[indexForPopup]?.popupProgram?.About?.split('—').slice(1, -1)"><p>{{itemList}}</p></li>
+      </ul>
     </div>
   </elements-popup>
   <div v-for="(item, index) in data" class="wrapper-card">
     <section class="border"></section>
     <div class="img-card-wrapper">
-      <blocks-img-card :folder="item.folder" :index="index + 1"/>
+      <blocks-img-card :link="item.image.data.attributes.url"/>
     </div>
     <div class="content">
       <!-- <p>2 pdf-файла для скачивания</p> -->
       <h2>{{ item.heading }}</h2>
-      <p class="title-card">{{ item.title }}</p>
-      <button @click="dataPopup.setIsOpen" @click.native="indexForPopup = index" class="details">Подробнее</button>
-      <elements-button-green :isLink="true">{{ item.btnText }}</elements-button-green>
+      <p class="title-card">{{ item?.text }}</p>
+      <button @click="dataPopup?.setIsOpen" @click.native="indexForPopup = index" class="details">Подробнее</button>
+      <elements-button-green :isLink="true">Скачать бесплатно</elements-button-green>
       <!-- <p>Бесплатно при покупке любого пакета «Школы <a>беременности»</a> </p> -->
     </div>
   </div>
@@ -39,9 +41,6 @@
         indexForPopup: 0
       }
     },
-    updated() {
-      console.log(this.isActive)
-    }
   }
 </script>
 <style scoped lang="scss">
@@ -70,6 +69,14 @@
 
   .popup-content {
     max-width: 760px;
+  }
+
+  ul {
+    padding: 0 20px;
+    li {
+      list-style-type: '—';
+      padding-left: 10px;
+    }
   }
   .wrapper-card {
     width: 100%;

@@ -40,7 +40,7 @@ export default {
     cursor: pointer;
     display: inline-block;
     text-align: center;
-    margin: 40px 0 0 0;
+    margin: 20px 0 0 0;
 
     @media screen and (max-width: 680px) {
       font-size: 16px;

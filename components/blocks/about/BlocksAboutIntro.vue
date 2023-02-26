@@ -73,7 +73,8 @@ import '@fancyapps/ui/dist/fancybox.css'
 
     &__right-column {
       position: relative;
-      width: 300px;
+      width: 322px;
+      height: 322px;
       display: flex;
       align-items: center;
 
@@ -85,7 +86,6 @@ import '@fancyapps/ui/dist/fancybox.css'
     }
 
     &__image {
-      max-width: 300px;
       width: 100%;
       height: 100%;
     }
@@ -117,7 +117,6 @@ import '@fancyapps/ui/dist/fancybox.css'
 
     &__button-container {
       display: flex;
-      margin: 40px 0 0 0;
 
       @media screen and (max-width: 1200px) {
         justify-content: center;

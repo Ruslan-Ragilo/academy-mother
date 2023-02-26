@@ -29,8 +29,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 90px 0 0 0;
 
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 1280px) {
+      margin: 50px 0 0 0;
       padding: 60px 0;
     }
 
@@ -47,7 +49,7 @@
       font-size: 38px;
       margin: 0 0 20px 0;
 
-      @media screen and (max-width: 1200px) {
+      @media screen and (max-width: 1280px) {
         font-size: 36px;
         line-height: 43px;
         width: 355px;
@@ -101,7 +103,7 @@
       bottom: 24px;
       transform: rotate(50deg);
 
-      @media screen and (max-width: 1200px) {
+      @media screen and (max-width: 1280px) {
         display: none;
       }
 
@@ -121,7 +123,7 @@
       left: -80px;
       top: 50px;
 
-      @media screen and (max-width: 1200px) {
+      @media screen and (max-width: 1280px) {
         width: 144px;
         height: 111px;
       }
@@ -140,7 +142,7 @@
       left: 32px;
       transform: rotate(-15deg);
 
-      @media screen and (max-width: 1200px) {
+      @media screen and (max-width: 1280px) {
         left: 8px;
       }
 
@@ -148,7 +150,7 @@
         display: none;
       }
     }
-
+    
     &__pine-icon {
       position: absolute;
       fill: #064848;
@@ -158,7 +160,7 @@
       right: 144px;
       transform: rotate(-65deg);
 
-      @media screen and (max-width: 1200px) {
+      @media screen and (max-width: 1280px) {
         display: none;
       }
 
@@ -176,7 +178,7 @@
       right: 101px;
       bottom: 77px;
 
-      @media screen and (max-width: 1200px) {
+      @media screen and (max-width: 1280px) {
         right: -60px;
         bottom: -30px;
       }
@@ -196,7 +198,7 @@
       bottom: 60px;
       transform: scale(1.5);
 
-      @media screen and (max-width: 1200px) {
+      @media screen and (max-width: 1280px) {
         display: none;
       }
     }

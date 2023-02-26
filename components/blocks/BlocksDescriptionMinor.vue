@@ -6,7 +6,7 @@
           {{ label }}
         </div>
         <h2 class="minor-description__title">
-          {{ title }}
+          {{   }}
         </h2>
         <ul class="minor-description__list">
           <li v-for="item in listItems" class="minor-description__list-item">

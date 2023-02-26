@@ -1,19 +1,22 @@
 <template>
   <div class="articles-page section-container">
     <h1 class="articles-page__title">Полезные материалы и статьи</h1>
-      <blocks-articles-cards :data="data.dataCard"/>
+      <blocks-articles-cards :data="storeUsefulCard.getDataCard"/>
       <blocks-media-articles />
       <blocks-slider-articles />
     <blocks-useful-articles />
-    {{ store.point }}
+    {{ storeUseful.point }}
   </div>
 </template>
 <script setup>
   import {useArticlesStore} from '~~/stores/articles/articlesStore'
   import {useUsefulStore} from '~~/stores/articles/usefulStore'
 
-  const store = useUsefulStore();
-  const data = useArticlesStore();
+  const storeUseful = useUsefulStore();
+  const storeUsefulCard = useArticlesStore();
+  storeUsefulCard.fetchDataCard()
+  
+  
 </script>
 <style lang="scss" scoped>
 
