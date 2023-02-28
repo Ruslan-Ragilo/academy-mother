@@ -1,8 +1,8 @@
 <template>
   <h2 class="heading  usefulMedia">Полезные статьи</h2>
   <div class="wrapper">
-    <div v-for="(item, index) in store.dataUseful" class="cardArticles">
-      <img :src="`/_nuxt/assets/images/articles/imgUseful/${item.img}.png`"/>
+    <div v-for="(item, index) in store.getUsefulData" class="cardArticles">
+      <img :src="`http://95.163.236.196:1337${item.image?.data[0].attributes?.url}`"/>
       <h2>{{ item.heading }}</h2>
       <p>{{ item.title }}</p>
       <a @click.prevent="goTo(item.heading, index)" :href="item.href">Читать статью</a>
@@ -19,7 +19,7 @@
     }, 
     setup() {
       const store = useUsefulStore();
-
+      store.fetchUsefulData()
       return {
         store
       }

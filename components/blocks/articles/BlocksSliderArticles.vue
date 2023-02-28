@@ -30,10 +30,10 @@
   >
     <swiper-slide class="slide" v-for="item in store.dataSwiper"> 
       <div class="slide-card">
-        <p class="year">{{ item.years }}</p>
+        <p class="year">{{ item.year }}</p>
         <h2>{{ item.heading }}</h2>
-        <p class="title">{{ item.authors }}</p>
-        <elements-read-articles :href="item.href" class="btnRead" />
+        <p class="title">{{ item.author }}</p>
+        <elements-read-articles :href="item.link" class="btnRead" />
       </div>
     </swiper-slide>
 </swiper>
@@ -71,6 +71,8 @@
     },
     setup() {
       const store = useSwiperArticlesStore()
+      store.fetchSliderData()
+
       const prev = ref(null);
       const next = ref(null);
 

@@ -28,7 +28,6 @@ export const useArticlesStore = defineStore('articlesStore', {
     async fetchDataCardMedia() {
       const data = await fetch(import.meta.env.VITE_URL_API + '/api/articles-medias?populate=*')
       const res = await data.json()
-      console.log(res)
       this.dataCardMedia = res.data.map(el => el.attributes)
     },
     async fetchDataCard() {

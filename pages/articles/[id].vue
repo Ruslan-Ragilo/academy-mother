@@ -1,12 +1,17 @@
 <template>
     <div class="containerArticlesDetails">
-        <div class="contentArticlesUseful" v-html="store.dataUseful[store.index].details">
+        <div class="contentArticlesUseful">
+            <h2>{{ store.getUsefulData[store.index]?.heading }}</h2>
+            <div v-for="item in store.getUsefulData[store.index]?.PageUsefulArticles">
+                <h3>{{ item?.heading }}</h3>
+                <p>{{ item?.title }}</p>
+            </div>
         </div>
         <div class="block-author">
-            <img src="~assets/images/avatarAuthor.png" alt="">
+            <img :src="'http://95.163.236.196:1337/uploads/thumbnail_Rectangle_173_1_8803ef4fbb.png'" alt="">
             <div>
             <p>Автор Статьи</p>
-            <p>Профессор, доктор медицинских наук, специалист по трудным и сложным беременностям Джобава Элисо Мурмановна</p>
+            <p>{{ store.getUsefulData[store.index]?.author }}</p>
             </div>
         </div>
         <NuxtLink class="linkToBack" to="/articles">
