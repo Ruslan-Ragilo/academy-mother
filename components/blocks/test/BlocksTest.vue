@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="isOpened">
     <elements-modals-keeper :is-modal-opened="isOpened" @close="$emit('close')">
       <div v-if="showResult === null">
         <h2 class="modal-test__title">

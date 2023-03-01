@@ -9,7 +9,7 @@
     <svg-pine-icon class="test-block__pine-icon" />
     <svg-diamond-icon class="test-block__diamond" />
     <svg-soft-icon class="test-block__soft" />
-    <blocks-test :is-opened="isOpened" @close="isOpened=false" />
+    <blocks-test @close="isOpened = false" :isOpened="isOpened"/>
   </div>
 </template>
 
@@ -21,7 +21,7 @@ import { ref } from 'vue'
       return {
         isOpened
       }
-    }
+    },
   }
 </script>
 
