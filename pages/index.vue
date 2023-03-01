@@ -21,8 +21,9 @@
     </div>
   </div>
   <div class="section-block section-container">
-    <blocks-main-useful-articles />
-    <blocks-main-media-articles class="section-block" />
+    <blocks-reviews-block />
+    <blocks-useful-articles-main />
+    <blocks-media-articles-main class="section-block" />
     <blocks-message-us class="section-block" />
   </div>
 </template>
