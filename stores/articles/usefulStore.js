@@ -18,7 +18,6 @@ export const useUsefulStore = defineStore('usefulStore', {
   },
   getters: {
     getUsefulData() {
-      console.log(this.dataUseful);
       return this.dataUseful
     }
   }

@@ -2,7 +2,7 @@
   <div class="swiper-item">
     <div>
       <div class="swiper-item__image-box">
-        <img class="swiper-item__image" :src="`_nuxt/static/swiperSlides/${photo}.png`" />
+        <img class="swiper-item__image" :src="photo" />
       </div>
       <div class="swiper-item__title">
         {{ title }}
@@ -11,7 +11,7 @@
         {{ text }}
       </div>
     </div>
-    <div class="swiper-item__link" @click="$emit('openModal', { title, items })">
+    <div class="swiper-item__link" @click="$emit('openModal', {modalHeading, modalTitle})">
       Подробнее
     </div>
   </div>
@@ -33,17 +33,21 @@
         type: String,
         default: ''
       },
-      items: {
-        type: Array,
-        default: () => []
-      }
+      modalHeading: {
+        type: String,
+        default: ''
+      },
+      modalTitle: {
+        type: String,
+        default: ''
+      },
     }
   }
 </script>
 
 <style lang="scss" scoped>
   .swiper-item {
-    height: 480px;
+    height: 450px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
