@@ -27,3 +27,44 @@
     <blocks-message-us class="section-block" />
   </div>
 </template>
+<style lang="scss">
+  .nav-btn {
+    overflow: initial;
+    opacity: 1;
+    background-color: rgba(6, 72, 72, 1);
+    background-image: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;  /* position the top  edge of the element at the middle of the parent */
+    // left: 50%; /* position the left edge of the element at the middle of the parent */
+    transform: translate(-50%); 
+
+    &::after {
+      content: '';
+    }
+
+    @media screen and (max-width: 680px) {
+      top: -30px;
+    }
+  }
+
+  .swiper-button-prev {
+    transform: rotate(180deg);
+    z-index: 111;
+    left: -60px;
+
+    @media screen and (max-width: 680px) {
+      left: 0px;
+    }
+  }
+
+  .swiper-button-next {
+    right: -80px;
+
+    @media screen and (max-width: 680px) {
+      right: calc(100% - 120px);
+    }
+  }
+</style>

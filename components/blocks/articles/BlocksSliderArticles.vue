@@ -1,7 +1,7 @@
 <template>
   <h2 class="heading">Научные статьи</h2>
   <div class="swiper-container">
-    <swiper
+    <!-- <swiper
     class="swiper"
     :modules="modules"
     :slides-per-view="3"
@@ -23,10 +23,7 @@
         slidesPerView: 1,       
         spaceBetween: 20
       },
-
     }"
-    @swiper="onSwiper"
-    @slideChange="onSlideChange"
   >
     <swiper-slide class="slide" v-for="item in store.dataSwiper"> 
       <div class="slide-card">
@@ -36,8 +33,8 @@
         <elements-read-articles :href="item.link" class="btnRead" />
       </div>
     </swiper-slide>
-</swiper>
-<div ref="prev" class="swiper-button-prev nav-btn">
+  </swiper>
+  <div ref="prev" class="swiper-button-prev nav-btn">
     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="13" viewBox="0 0 25 13" fill="yellow">
       <path d="M25 6.5L-5.68248e-07 13L9.7619 6.5L0 -1.09278e-06L25 6.5Z" fill="#fff"/>
     </svg>
@@ -46,12 +43,12 @@
     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="13" viewBox="0 0 25 13" fill="red">
       <path d="M25 6.5L-5.68248e-07 13L9.7619 6.5L0 -1.09278e-06L25 6.5Z" fill="#fff"/>
     </svg>
-  </div>
-  </div>
+  </div> -->
+</div>
 </template>
 <script>
   // import Swiper core and required modules
-  import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+  import { Navigation } from 'swiper';
   import {useSwiperArticlesStore} from '~~/stores/articles/swiperArticlesStore';
 
   // Import Swiper Vue.js components
@@ -64,32 +61,26 @@
   import 'swiper/css/scrollbar';
 
   // Import Swiper styles
-  export default {
-    components: {
-      Swiper,
-      SwiperSlide,
-    },
-    setup() {
-      const store = useSwiperArticlesStore()
-      store.fetchSliderData()
+  // export default {
+  //   components: {
+  //     Swiper,
+  //     SwiperSlide,
+  //   },
+  //   setup() {
+  //     const store = useSwiperArticlesStore()
+  //     store.fetchSliderData()
 
-      const prev = ref(null);
-      const next = ref(null);
-
-      const onSwiper = (swiper) => {
-      };
-      const onSlideChange = () => {
-      };
-      return {
-        prev,
-        next,
-        onSwiper,
-        onSlideChange,
-        store,
-        modules: [Navigation, Pagination, Scrollbar, A11y],
-      };
-    },
-  };
+  //     const prev = ref(null);
+  //     const next = ref(null);
+      
+  //     return {
+  //       prev,
+  //       next,
+  //       store,
+  //       modules: [Navigation],
+  //     };
+  //   },
+  // };
 </script>
 <style lang="scss" scoped>
 
@@ -123,46 +114,6 @@
     @media screen and (max-width: 500px) {
       overflow: visible;
       max-width: 240px;
-    }
-  }
-
-  .nav-btn {
-    overflow: initial;
-    opacity: 1;
-    background-color: rgba(6, 72, 72, 1);
-    background-image: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;  /* position the top  edge of the element at the middle of the parent */
-    // left: 50%; /* position the left edge of the element at the middle of the parent */
-    transform: translate(-50%); 
-
-    &::after {
-      content: '';
-    }
-
-    @media screen and (max-width: 680px) {
-      top: -30px;
-    }
-  }
-
-  .swiper-button-prev {
-    transform: rotate(180deg);
-    z-index: 111;
-    left: -60px;
-
-    @media screen and (max-width: 680px) {
-      left: 0px;
-    }
-  }
-
-  .swiper-button-next {
-    right: -80px;
-
-    @media screen and (max-width: 680px) {
-      right: calc(100% - 120px);
     }
   }
 }

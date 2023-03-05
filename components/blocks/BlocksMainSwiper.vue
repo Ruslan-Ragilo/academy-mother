@@ -15,7 +15,11 @@
     </div>
     <div class="main-swiper__swiper-block">
       <swiper
-        v-if="sliderComand.getSliderComand.length"
+      :navigation="{
+        prevEl: prev,
+        nextEl: next,
+      }"
+    :modules="modules"
         :space-between="40"
         :breakpoints="{ 1200:{ slidesPerView: 4}, 610:{ slidesPerView: 2 }, 0:{ slidesPerView: 1 } }"
         class="swiper"
@@ -31,7 +35,18 @@
           />
         </swiper-slide>
       </swiper>
+      <div ref="prev" class="swiper-button-prev nav-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="13" viewBox="0 0 25 13" fill="yellow">
+        <path d="M25 6.5L-5.68248e-07 13L9.7619 6.5L0 -1.09278e-06L25 6.5Z" fill="#fff"/>
+      </svg>
     </div>
+    <div ref="next" class="swiper-button-next nav-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="13" viewBox="0 0 25 13" fill="red">
+        <path d="M25 6.5L-5.68248e-07 13L9.7619 6.5L0 -1.09278e-06L25 6.5Z" fill="#fff"/>
+      </svg>
+    </div>
+    </div>
+    
   </div>
   <div v-if="isModalOpened" class="main-swiper__modal">
     <div class="main-swiper__modal-window">
@@ -47,13 +62,27 @@
 </template>
 
 <script>
+import { ref } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
+import 'swiper/css/navigation';
+import { Navigation } from 'swiper';
 
   export default {
     components: {
       Swiper,
-      SwiperSlide
+      SwiperSlide,
+    },
+
+    setup() {
+
+      const prev = ref(null);
+      const next = ref(null);
+      return {
+        modules: [Navigation],
+        prev,
+        next,
+      };  
     },
 
     data() {
@@ -65,12 +94,10 @@ import 'swiper/css';
 
     methods: {
       openModal (params) {
-        console.log(params);
         this.modalInfo = { ...params }
         this.switchModal()
       },
       switchModal () {
-        console.log('llkj');
         this.isModalOpened = !this.isModalOpened
       }
     },
