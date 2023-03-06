@@ -9,7 +9,7 @@
     >
       <div>
         <span class="custom-select__inner-text bold">
-          {{ label }}
+          {{ inputValue.label }}
         </span>
       </div>
       <svg-arrow-down-input
@@ -76,6 +76,7 @@ export default {
 
     function selectItem (item) {
       inputValue.value = item
+      isOpened.value = false
     }
 
     const getValue = computed(() => {
@@ -87,8 +88,9 @@ export default {
     })
 
     onMounted(() => {
-      inputValue.value = props.modelValue
+      inputValue.value = props.label
     })
+
 
     return {
       isOpened,
@@ -122,17 +124,14 @@ export default {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-
-    //&_opened {
-    //  background-color: var(--background-color);
-    //  color: var(--hover-color);
-    //  border-color: var(--hover-color);
-    //}
   }
 
   &__inner-text {
     color: #FEF8F2;
     font-size: 18px;
+    display: inline-block;
+    max-width: 330px;
+    overflow: hidden;
     font-weight: 600;
   }
 
@@ -149,7 +148,7 @@ export default {
     position: absolute;
     left: 0;
     top: 20px;
-    padding: 35px 15px 15px 15px;
+    padding: 35px 0px 15px 0px;
     background-color: #839389;
     border: 1px solid var(--border-color);
     border-radius: 0 0 15px 15px;
@@ -168,6 +167,13 @@ export default {
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
+    padding: 10px 15px;
+    transition: .3s;
+    width: 100%;
+
+    &:hover {
+      background-color: #064848;
+    }
 
     &:not(:last-child) {
       margin: 0 0 15px 0;
