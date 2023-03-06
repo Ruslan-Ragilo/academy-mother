@@ -1,36 +1,42 @@
 <template>
   <div class="guides section-container">
     <blocks-guides-intro />
-    <blocks-workers-card-list :data="data" @openModal="openModal" />
+    <blocks-workers-card-list :data="store.getDataGuides" @openModal="openModal" />
     <blocks-message-us class="guides__message-us" />
     <div v-if="isModalOpened" class="guides__modal">
       <div class="guides__modal-window">
         <div class="guides__close-cross-button" @click="switchModal" />
         <div class="guides__modal-scroll-line">
           <h3 class="guides__modal-title">
-            {{ currentModalData?.title }}
+            {{ currentModalData?.popupGuide.title }}
           </h3>
           <div class="guides__modal-label">
-            {{ currentModalData?.for }}
+            {{ currentModalData?.popupGuide.subTitle }}
           </div>
           <h4 class="guides__secondary-title">
             О чем поговорим?
           </h4>
           <ul class="guides__modal-list">
-            <li v-for="item in currentModalData?.talkAbout" class="guides__modal-item">
+            <li v-for="item in currentModalData?.popupGuide.About.split('—').slice(1, -1)" class="guides__modal-item">
               {{ item }}
             </li>
           </ul>
-          <div class="guides__author-block">
-            <img class="guides__author-image" src="@/assets/images/MainPageDescriptionImageMinor.png" />
+          <div v-if="currentModalData?.guideEats">
+            <h3 class="guides__modal-title">
+            {{ currentModalData?.guideEats.title }}
+          </h3>
+          <div class="guides__modal-label">
+            {{ currentModalData?.guideEats.About }}
+          </div>
+          </div>
+          <div v-for="item in currentModalData?.authorGuide" class="guides__author-block">
+            <img class="guides__author-image" :src="'http://95.163.236.196:1337/' + item" />
             <div class="guides__about-author">
               <div class="guides__author-label">
                 Автор Вебинара
               </div>
               <div class="guides__author-title">
-                Профессор, доктор медицинских наук,
-                специалист по трудным и сложным беременностям
-                Джобава Элисо Мурмановна
+                {{ item.authorTitle }}
               </div>
             </div>
           </div>
@@ -41,6 +47,7 @@
 </template>
 
 <script>
+import {useGuidesStore} from "~/stores/guidesStore"
 const data = [
   {
     type: '2 pdf-файла для скачивания',
@@ -105,25 +112,28 @@ const data = [
 export default {
 
   setup () {
+    const store = useGuidesStore();
+    store.fetchDataGuides()
     const isModalOpened = ref(false)
 
     const currentModalData = ref(null)
 
-    function switchModal () {
-      isModalOpened.value = !isModalOpened.value
-    }
-
-    function openModal (data) {
-      currentModalData.value = data
+    function openModal (item) {
+      currentModalData.value = item
+      console.log(currentModalData);
       switchModal()
     }
 
+    function switchModal () {
+      isModalOpened.value = !isModalOpened.value
+    }
     return {
       data,
       isModalOpened,
       currentModalData,
       switchModal,
-      openModal
+      openModal,
+      store,
     }
   }
 }
@@ -145,7 +155,7 @@ export default {
     }
 
     @media screen and (max-width: 400px) {
-      padding: 0 0 90px 0;
+      padding: 0 10px 90px 10px;
     }
 
     &__message-us {
@@ -224,6 +234,12 @@ export default {
     &__modal-list {
       list-style: none;
       padding: 0;
+
+      li {
+        &::before {
+          content: '—'
+        }
+      }
     }
 
     &__modal-item {

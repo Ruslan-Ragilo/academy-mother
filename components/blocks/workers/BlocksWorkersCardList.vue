@@ -1,6 +1,6 @@
 <template>
   <div class="workers-list">
-    <h2 class="workers-list__title">
+    <h2 v-if="med" class="workers-list__title">
       Специалистам и медработникам
     </h2>
     <div
@@ -10,18 +10,18 @@
         'workers-list__card_reversed': index % 2 === 1
       }"
     >
-      <img class="workers-list__card-image" :src="item?.image" />
+      <img class="workers-list__card-image" :src="'http://95.163.236.196:1337' + item?.image.data.attributes.url" />
       <div class="workers-list__info-panel">
         <div class="workers-list__product-type">
-          {{ item?.type }}
+          {{ item?.subTitle }}
         </div>
         <h2 class="workers-list__product-title">
-          {{ item?.title }}
+          {{ item?.heading }}
         </h2>
         <div class="workers-list__product-description">
-          {{ item?.description }}
+          {{ item?.title }}
         </div>
-        <div v-if="item?.isDetailed" class="workers-list__detailed-button" @click="openModal(item)">
+        <div v-if="item.popupMed || item.popupGuide" class="workers-list__detailed-button" @click="openModal(item)">
           Подробнее
           <div class="workers-list__detailed-button-cross" />
         </div>
@@ -31,15 +31,15 @@
               СТОИМОСТЬ ПРОГРАММЫ
             </div>
             <div class="workers-list__cost">
-              {{ item?.cost }}
+              {{ item?.price }} руб.
             </div>
           </div>
           <div class="workers-list__purchase-button">
             Купить программу
           </div>
         </div>
-        <div v-if="item?.isSpecial" class="workers-list__additional">
-          При покупке пакета из двух вебинаров действует спецпредложение
+        <div v-if="item?.specOffer" class="workers-list__additional">
+          {{ item?.specOffer }}
         </div>
       </div>
     </div>
@@ -53,6 +53,10 @@
       data: {
         type: Array,
         default: () => []
+      },
+      med: {
+        default: false,
+        type: Boolean
       }
     },
 
@@ -60,8 +64,8 @@
 
     setup (props, { emit }) {
 
-      function openModal (data) {
-        emit('openModal', data)
+      function openModal (item) {
+        emit('openModal', item)
       }
 
       return {
@@ -226,7 +230,7 @@
 
     &__additional {
       margin: 30px 0 0 0;
-      max-width: 50%;
+      max-width: 350px;
       color: #232323;
       font-size: 16px;
       line-height: 150%;
