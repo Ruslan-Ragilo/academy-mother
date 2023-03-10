@@ -1,7 +1,7 @@
 <template>
   <h2 class="heading">Научные статьи</h2>
   <div class="swiper-container">
-    <!-- <swiper
+    <swiper
     class="swiper"
     :modules="modules"
     :slides-per-view="3"
@@ -43,7 +43,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="13" viewBox="0 0 25 13" fill="red">
       <path d="M25 6.5L-5.68248e-07 13L9.7619 6.5L0 -1.09278e-06L25 6.5Z" fill="#fff"/>
     </svg>
-  </div> -->
+  </div>
 </div>
 </template>
 <script>
@@ -60,27 +60,26 @@
   import 'swiper/css/pagination';
   import 'swiper/css/scrollbar';
 
-  // Import Swiper styles
-  // export default {
-  //   components: {
-  //     Swiper,
-  //     SwiperSlide,
-  //   },
-  //   setup() {
-  //     const store = useSwiperArticlesStore()
-  //     store.fetchSliderData()
+  export default {
+    components: {
+      Swiper,
+      SwiperSlide,
+    },
+    setup() {
+      const store = useSwiperArticlesStore()
+      store.fetchSliderData()
 
-  //     const prev = ref(null);
-  //     const next = ref(null);
+      const prev = ref(null);
+      const next = ref(null);
       
-  //     return {
-  //       prev,
-  //       next,
-  //       store,
-  //       modules: [Navigation],
-  //     };
-  //   },
-  // };
+      return {
+        prev,
+        next,
+        store,
+        modules: [Navigation],
+      };
+    },
+  };
 </script>
 <style lang="scss" scoped>
 

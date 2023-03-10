@@ -10,7 +10,7 @@
       <div style="margin-bottom: 20px;" v-for="item in webinars?.getDataWebinars[indexPopup]?.attributes?.popupInfo">
         <h2>{{ item?.title }}</h2>
         <p class="for-who">{{item?.subTitle }}</p>
-        <h2 v-if="item?.About?.length">О чем поговорим?</h2>
+        <h2 style="margin-bottom: 20px;" v-if="item?.About?.length">О чем поговорим?</h2>
         <ul class="list-about">
           <li class="about-webinars" v-for="item in item?.About?.split('—').slice(1, -1)">{{ item }}</li>
         </ul>

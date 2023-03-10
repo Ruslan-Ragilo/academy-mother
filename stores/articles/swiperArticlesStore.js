@@ -8,9 +8,9 @@ export const useSwiperArticlesStore = defineStore('swiperArticlesStore ', {
     getIsOpen() {
       return this.isOpen
     },
-     getDataSlider() {
+    getDataSlider() {
       return this.dataSwiper
-     }
+    }
   },
   actions: {
     setIsOpen() {

@@ -8,10 +8,10 @@
     <svg-heart-icon class="main-swiper__heart" />
     <svg-star class="main-swiper__star" />
     <h1 class="main-swiper__title">
-      Команда
+      {{ headingSlider }}
     </h1>
     <div class="main-swiper__text">
-      Команда Академии осознанного материнства — это вовлеченные специалисты, обладающие необходимыми знаниями и навыками
+      {{ titleSlider }}
     </div>
     <div class="main-swiper__swiper-block">
       <swiper
@@ -26,7 +26,7 @@
       >
         <swiper-slide v-for="item in sliderComand.getSliderComand">
           <elements-main-swiper-item
-            :title="item.heding"
+            :title="item.fullName"
             :text="item.title"
             :photo="'http://95.163.236.196:1337' + item.avatar.data.attributes.url"
             :modalHeading="item.popupComand.title"
@@ -72,6 +72,16 @@ import { Navigation } from 'swiper';
     components: {
       Swiper,
       SwiperSlide,
+    },
+    props: {
+      headingSlider: {
+        type: String,
+        default: ''
+      },
+      titleSlider: {
+        type: String,
+        default: ''
+      }
     },
 
     setup() {

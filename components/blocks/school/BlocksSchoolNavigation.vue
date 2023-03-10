@@ -8,10 +8,10 @@
         <nuxt-link class="school-nav__tag" to="/school#schoolProgram">
           Программа
         </nuxt-link>
-        <nuxt-link class="school-nav__tag">
+        <nuxt-link class="school-nav__tag" to="/school#schoolTariff">
           Тарифы
         </nuxt-link>
-        <nuxt-link class="school-nav__tag">
+        <nuxt-link class="school-nav__tag" to="/school#schoolExperts">
           Специалисты
         </nuxt-link>
       </div>

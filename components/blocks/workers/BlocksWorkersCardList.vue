@@ -18,8 +18,7 @@
         <h2 class="workers-list__product-title">
           {{ item?.heading }}
         </h2>
-        <div class="workers-list__product-description">
-          {{ item?.title }}
+        <div v-html="item?.title" class="workers-list__product-description">
         </div>
         <div v-if="item.popupMed || item.popupGuide" class="workers-list__detailed-button" @click="openModal(item)">
           Подробнее
@@ -40,6 +39,7 @@
         </div>
         <div v-if="item?.specOffer" class="workers-list__additional">
           {{ item?.specOffer }}
+          (преобрести можно <nuxt-link to="/webinars">тут</nuxt-link>)
         </div>
       </div>
     </div>

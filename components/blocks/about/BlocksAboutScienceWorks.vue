@@ -31,21 +31,21 @@ const worksList = [
     title: 'Диссертация',
     text: 'На соискание ученой степени кандидата медицинских наук ' +
           '<b>«Роль молекулярных и генетических факторов тромбофилии в генезе неразвивающейся беременности и начавшегося выкидыша»</b>',
-    link: 'https://new-disser.ru/_avtoreferats/01005096592.pdf'
+    link: 'https://medical-diss.com/medicina/rol-molekulyarnyh-i-geneticheskih-faktorov-trombofilii-v-geneze-nerazvivayuscheysya-beremennosti-i-nachavshegosya-vykidys'
   },
   {
     year: '2014',
     title: 'Диссертация',
     text: 'На соискание ученой степени доктора медицинских наук ' +
           '<b>«Беременность высокого риска по развитию акушерской патологии — система гемостаза и функция эндотелия. Системный подход к диагностике и терапии»</b>',
-    link: 'https://edrid.ru/authors/201.1a65b.html'
+    link: 'https://new-disser.ru/_avtoreferats/01005096592.pdf'
   },
   {
     year: '2014',
     title: 'Патенты на изобретения',
     text: '«Способ диагностики плацентарной недостаточности у пациенток после эмболизации маточных артерий по поводу миомы матки»,' +
           '«Способ коррекции тромбофилических нарушений гемостаза во время беременности»',
-    link: 'https://medical-diss.com/medicina/rol-molekulyarnyh-i-geneticheskih-faktorov-trombofilii-v-geneze-nerazvivayuscheysya-beremennosti-i-nachavshegosya-vykidys'
+    link: 'https://edrid.ru/authors/201.1a65b.html'
   }
 ]
 

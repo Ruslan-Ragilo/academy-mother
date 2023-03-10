@@ -12,7 +12,7 @@
     <blocks-our-suggestions-block class="section-block" />
     <blocks-if-you-block class="section-block" />
     <blocks-work-format class="section-block" id="workFormat" />
-    <blocks-main-swiper />
+    <blocks-main-swiper headingSlider="Команда" titleSlider='Команда Академии осознанного материнства — это вовлеченные специалисты, обладающие необходимыми знаниями и навыками'/>
     <blocks-description-minor class="section-block" />
   </div>
   <div class="background-violet section-block">

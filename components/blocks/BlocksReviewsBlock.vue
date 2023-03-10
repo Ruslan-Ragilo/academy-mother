@@ -29,10 +29,9 @@
         class="slider"
       >
       <swiper-slide v-for="(item, index) in store.getReviewsSlider" :class="{itemSlider: true, active: item.isShow}">
-        <p>      
-          {{ item.content }}  
+        <p v-html="item.content" ref="heightDetails">   
         </p>        
-        <div @click="showDetails($event, window)" class="details">
+        <div v-if="watchHeight(index)" @click="showDetails($event, window)" class="details">
           <div></div>
           <div></div>
           <div></div>
@@ -81,7 +80,7 @@ const optionsArray = [
     label: 'Проект «Рождение Венеры»'
   }
 ]
-
+import { ref, onUpdated } from 'vue'
 let el = ref(null)
 
 
@@ -104,16 +103,30 @@ let el = ref(null)
         el.value = e.currentTarget.parentNode
         e.currentTarget.parentNode.classList.add('active')
         this.posScroll = window.scrollY
-      }
+      },
     },
 
     setup () {
       
       const store = useReviewsSlider();
       let currSelected = ref(optionsArray[0])
+      const heightDetails = ref(null)
       store.fetchDataReviewsSlider()
 
       let posScroll = 0;
+
+      onUpdated(() => {
+        heightDetails?.value.forEach((_,i) => {
+          watchHeight(i)
+        })
+      })
+
+      function watchHeight (index) {
+        if(heightDetails?.value) {
+          console.log(heightDetails?.value[index]?.offsetHeight > 254);
+          return heightDetails?.value[index]?.offsetHeight > 254
+        }
+      }
 
       function update (value) {
         store.filterReviews(value?.key)
@@ -125,7 +138,9 @@ let el = ref(null)
         update,
         posScroll,
         store,
-        currSelected
+        currSelected,
+        heightDetails,
+        watchHeight
       }
     }
   }
@@ -141,7 +156,7 @@ let el = ref(null)
 
 .slider {
   margin-top: 40px;
-  width: 100%;
+  max-width: 100%;
   position: absolute;
   overflow: hidden;
   top: 0;
@@ -152,6 +167,7 @@ let el = ref(null)
 }
 .itemSlider {
   max-width: 560px;
+  width: 100%!important;
   padding: 40px 40px 0px 40px;
   background: #ECE7E1;
   height: 354px;

@@ -55,13 +55,13 @@
           <router-link class="academy-footer__column-item" to="/about">
             Об основательнице
           </router-link>
-          <router-link class="academy-footer__column-item" to="/">
+          <router-link class="academy-footer__column-item" to="/articles">
             Полезные материалы
           </router-link>
-          <router-link class="academy-footer__column-item" to="/">
+          <router-link class="academy-footer__column-item" to="/articles/#mediaArticles">
             Публикации в СМИ
           </router-link>
-          <router-link class="academy-footer__column-item" to="/">
+          <router-link class="academy-footer__column-item" to="/articles">
             Статьи
           </router-link>
         </div>

@@ -10,6 +10,7 @@ export const useReviewsSlider = defineStore('reviewsSlider', {
       if (!this.typeReviews) {
         return this.dataReviewsSlider
       } else {
+        console.log(this.dataReviewsSlider.filter(el => el.typeReviews === this.typeReviews));
         return this.dataReviewsSlider.filter(el => el.typeReviews === this.typeReviews)
       }
       

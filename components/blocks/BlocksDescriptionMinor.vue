@@ -6,7 +6,7 @@
           {{ label }}
         </div>
         <h2 class="minor-description__title">
-          {{   }}
+          {{ title }}
         </h2>
         <ul class="minor-description__list">
           <li v-for="item in listItems" class="minor-description__list-item">
@@ -102,6 +102,7 @@
     font-size: 32px;
     line-height: 130%;
     margin: 20px 0 0 0;
+    max-width: 480px;
   }
 
   &__list-item {
@@ -133,7 +134,7 @@
   }
 
   &__image {
-    width: 100%;
+    width: 466px;
   }
 
   &__image-circle-figure {

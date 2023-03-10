@@ -2,9 +2,9 @@
   <div class="articles-page section-container">
     <h1 class="articles-page__title">Полезные материалы и статьи</h1>
       <blocks-articles-cards :data="storeUsefulCard.getDataCard"/>
-      <blocks-media-articles />
+      <blocks-media-articles id="mediaArticles" />
       <blocks-slider-articles />
-    <blocks-useful-articles />
+      <blocks-useful-articles />
     {{ storeUseful.point }}
   </div>
 </template>
