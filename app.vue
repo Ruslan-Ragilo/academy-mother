@@ -55,9 +55,5 @@
 
   .background-violet {
     background-color: #644C5C;
-
-    @media screen and (max-width: 680px) {
-      border-radius: 15px;
-    }
   }
 </style>

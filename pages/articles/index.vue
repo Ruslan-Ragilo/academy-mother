@@ -2,7 +2,7 @@
   <div class="articles-page section-container">
     <h1 class="articles-page__title">Полезные материалы и статьи</h1>
       <blocks-articles-cards :data="storeUsefulCard.getDataCard"/>
-      <blocks-media-articles id="mediaArticles" />
+      <blocks-media-articles />
       <blocks-slider-articles />
       <blocks-useful-articles />
     {{ storeUseful.point }}

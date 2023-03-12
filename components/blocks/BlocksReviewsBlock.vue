@@ -3,14 +3,35 @@
     <h3 class="reviews-block__title">
       Мы уже помогли многим женщинам
     </h3>
-    <elements-custom-select
+    <div class="wrappernavSel">
+      <elements-custom-select
       class="reviews-block__select"
       :label="currSelected"
       :items="optionsArray"
       @updateFilters="update"
-    />
-    <div class="swiper">
+      />
+      <div class="wrapperNav">
+        <div ref="prevRev" class="swiper-button-prev nav-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="13" viewBox="0 0 25 13" fill="yellow">
+            <path d="M25 6.5L-5.68248e-07 13L9.7619 6.5L0 -1.09278e-06L25 6.5Z" fill="#fff"/>
+          </svg>
+        </div>
+        <div ref="nextRev" class="swiper-button-next nav-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="13" viewBox="0 0 25 13" fill="red">
+            <path d="M25 6.5L-5.68248e-07 13L9.7619 6.5L0 -1.09278e-06L25 6.5Z" fill="#fff"/>
+          </svg>
+        </div>
+    </div>
+    </div>
+    <div ref="wrapperSlider" class="swiper">
       <swiper
+        :modules="modules"
+        :navigation="{
+          prevEl: prevRev,
+          nextEl: nextRev,
+        }"
+        @swiper="onSwiper"
+        @slideChange="onSlideChange"
         :breakpoints="{
       1281: {
         slidesPerView: 2,       
@@ -24,18 +45,23 @@
         slidesPerView: 2,       
         spaceBetween: 20
       },
-
     }"
         class="slider"
       >
-      <swiper-slide v-for="(item, index) in store.getReviewsSlider" :class="{itemSlider: true, active: item.isShow}">
+      <swiper-slide 
+      v-for="(item, index) in store.getReviewsSlider"
+      :key="index"
+      :class="{itemSlider: true, active: item.isShow}"
+      >
+      
         <p v-html="item.content" ref="heightDetails">   
         </p>        
-        <div v-if="watchHeight(index)" @click="showDetails($event, window)" class="details">
+        <div @click="showDetails($event, window)" class="details">
           <div></div>
           <div></div>
           <div></div>
         </div>
+      
       </swiper-slide>
       </swiper>
     </div>
@@ -43,9 +69,11 @@
 </template>
 
 <script>
+import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import {useReviewsSlider} from '~/stores/reviewsSlider';
 
+import 'swiper/css'
 const optionsArray = [
   {
     key: '',
@@ -82,14 +110,11 @@ const optionsArray = [
 ]
 import { ref, onUpdated } from 'vue'
 let el = ref(null)
-
-
   export default {
     components: {
       Swiper,
       SwiperSlide
     },
-
     methods: {
       showDetails(e) {
         if (e.currentTarget.parentNode.classList.contains('active')) {
@@ -105,47 +130,66 @@ let el = ref(null)
         this.posScroll = window.scrollY
       },
     },
-
     setup () {
-      
-      const store = useReviewsSlider();
-      let currSelected = ref(optionsArray[0])
+      const store = useReviewsSlider()
+      const currSelected = ref(optionsArray[0])
       const heightDetails = ref(null)
+      const wrapperSlider = ref(null)
       store.fetchDataReviewsSlider()
-
       let posScroll = 0;
-
-      onUpdated(() => {
-        heightDetails?.value.forEach((_,i) => {
-          watchHeight(i)
+      
+      heightDetails.value = [...store.getReviewsSlider]
+      
+      watch(() => heightDetails.value.length, () => {
+        heightDetails.value.forEach((element) => {
+          element.nextSibling.classList.remove('_active')
+          if(element.offsetHeight > 254) {
+            element.nextSibling.classList.add('_active')
+          }
         })
       })
-
-      function watchHeight (index) {
+      onUpdated(() => {
+        wrapperSlider.value.childNodes[0].children[0].style.transform = ''
         if(heightDetails?.value) {
-          console.log(heightDetails?.value[index]?.offsetHeight > 254);
-          return heightDetails?.value[index]?.offsetHeight > 254
+          heightDetails?.value.forEach((element, i) => {
+            element.nextSibling.classList.remove('_active')
+          if(element.offsetHeight > 254) {
+            element.nextSibling.classList.add('_active')
+          }
+          }) 
         }
-      }
-
+      })
       function update (value) {
         store.filterReviews(value?.key)
         currSelected.value = value
       }
 
+      const onSwiper = (swiper) => {
+        console.log(swiper);
+      };
+      const onSlideChange = () => {
+        console.log('slide change');
+      };
+
+      const prevRev = ref(null);
+      const nextRev = ref(null);
       return {
+        heightDetails,
         optionsArray,
         update,
         posScroll,
         store,
         currSelected,
-        heightDetails,
-        watchHeight
+        wrapperSlider,
+        modules: [Navigation],
+        onSwiper,
+        onSlideChange,
+        prevRev,
+        nextRev
       }
     }
   }
 </script>
-
 <style lang="scss" scoped>
 .swiper {
   width: 100%;
@@ -153,7 +197,6 @@ let el = ref(null)
   overflow: visible;
   min-height: 380px;
 }
-
 .slider {
   margin-top: 40px;
   max-width: 100%;
@@ -165,6 +208,45 @@ let el = ref(null)
       max-width: 560px;
    }
 }
+
+.wrappernavSel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40px 0 0 0;
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+  }
+
+  .wrapperNav {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (max-width: 700px) {
+      margin-top: 40px;
+      align-self: self-start;
+    }
+    
+
+    div {
+      left: auto!important;
+      right: auto;
+      position: static;
+      margin-top: 0;
+    }
+
+    .swiper-button-prev {
+      left: -40px;
+    }
+
+    .swiper-button-next {
+      left: 40px;
+    }
+  }
+}
+
+
 .itemSlider {
   max-width: 560px;
   width: 100%!important;
@@ -176,14 +258,12 @@ let el = ref(null)
   position: relative;
   z-index: 1111;
   transition: .3s;
-
   &.active {
     height: auto;
     padding-bottom: 70px;
   }
-
   .details {
-    display: flex;
+    display: none;
     gap: 3px;
     position: absolute;
     bottom: 20px;
@@ -192,6 +272,9 @@ let el = ref(null)
     cursor: pointer;
     left: 50%;
     transform: translate(-50%, -50%);
+    &._active {
+      display: flex;
+    }
     div {
       width: 5px;
       height: 5px;
@@ -199,13 +282,11 @@ let el = ref(null)
       border-radius: 50%;
     }
   }
-
   p {
     margin: 0;
     color: #232323;
     line-height: 24px;
   }
-
   &::before {
     content: "";
     height: 30px;
@@ -219,9 +300,7 @@ let el = ref(null)
     -webkit-box-shadow: 0px -98px 41px -17px rgba(236, 231, 225, .9) inset;
     -moz-box-shadow: 0px -98px 41px -17px rgba(236, 231, 225, .9) inset;
     box-shadow: 0px -98px 41px -17px rgba(236, 231, 225, .9) inset;
-
   }
-
   &::after {
     content: "";
     height: 30px;
@@ -237,17 +316,14 @@ let el = ref(null)
   .reviews-block {
     margin: 150px 0 0 0;
     width: 100%;
-
     &__title {
       color: #644C5C;
       font-size: 38px;
       margin: 0;
       text-align: left;
     }
-
     &__select {
-      width: 410px;
-      margin: 40px 0 0 0;
+      max-width: 410px;
     }
   }
 </style>

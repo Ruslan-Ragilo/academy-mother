@@ -1,5 +1,5 @@
 <template>
-  <h2>Статьи в СМИ</h2>
+  <h2 id="mediaArticles">Статьи в СМИ</h2>
   <div class="wrapper-card">
     <div v-for="item in store.geDataCardMedia" class="card">
       <img :src="'http://95.163.236.196:1337' + item?.image?.data[0]?.attributes?.url" />
