@@ -33,7 +33,7 @@
       <div class="webinars-list__card-wrapper-text">
         <p class="who-be">{{ item.attributes.whoBe }}</p>
         <h2>{{ item.attributes.heading }}</h2>
-        <p v-html="item.attributes.text" class="how-can-help"></p>
+        <p v-html="item.attributes.description" class="how-can-help"></p>
         <button @click.native="setIsOpen(index)" class="details">Подробнее</button>
         <div class="wraper-price">
           <div>
@@ -121,7 +121,7 @@
   .overlay__popup-webinars {
     padding: 60px 74px;
     position: fixed;
-    visibility: none;
+    visibility: hidden;
     height: 0;
     opacity: 0;
     transition: .3s;

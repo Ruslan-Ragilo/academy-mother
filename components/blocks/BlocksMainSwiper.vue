@@ -15,14 +15,16 @@
     </div>
     <div class="main-swiper__swiper-block">
       <swiper
-      :navigation="{
-        prevEl: prev,
-        nextEl: next,
-      }"
-    :modules="modules"
-        :space-between="40"
-        :breakpoints="{ 1200:{ slidesPerView: 4}, 610:{ slidesPerView: 2 }, 0:{ slidesPerView: 1 } }"
-        class="swiper"
+      :modules="modules"
+        :navigation="{
+          prevEl: prevCom,
+          nextEl: nextCom,
+        }"
+      :space-between="40"
+      :breakpoints="{ 1200:{ slidesPerView: 4}, 610:{ slidesPerView: 2 }, 0:{ slidesPerView: 1 } }"
+      class="swiper"
+      @swiper="onSwiper"
+      @slideChange="onSlideChange"
       >
         <swiper-slide v-for="item in sliderComand.getSliderComand">
           <elements-main-swiper-item
@@ -35,7 +37,7 @@
           />
         </swiper-slide>
       </swiper>
-      <div ref="prev" class="swiper-button-prev nav-btn">
+      <!-- <div ref="prev" class="swiper-button-prev nav-btn">
       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="13" viewBox="0 0 25 13" fill="yellow">
         <path d="M25 6.5L-5.68248e-07 13L9.7619 6.5L0 -1.09278e-06L25 6.5Z" fill="#fff"/>
       </svg>
@@ -44,7 +46,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="13" viewBox="0 0 25 13" fill="red">
         <path d="M25 6.5L-5.68248e-07 13L9.7619 6.5L0 -1.09278e-06L25 6.5Z" fill="#fff"/>
       </svg>
-    </div>
+    </div> -->
     </div>
     
   </div>
@@ -63,10 +65,11 @@
 
 <script>
 import { ref } from 'vue';
+import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { Navigation } from 'swiper';
+
 
   export default {
     components: {
@@ -86,12 +89,23 @@ import { Navigation } from 'swiper';
 
     setup() {
 
-      const prev = ref(null);
-      const next = ref(null);
+      const onSwiper = (swiper) => {
+        console.log(swiper);
+      };
+      const onSlideChange = () => {
+        console.log('slide change');
+      };
+
+      // const prev = ref(null);
+      // const next = ref(null);
+      const prevCom = ref(null);
+      const nextCom = ref(null);
       return {
+        onSwiper,
+        onSlideChange,
+        prevCom,
+        nextCom,
         modules: [Navigation],
-        prev,
-        next,
       };  
     },
 

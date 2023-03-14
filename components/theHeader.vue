@@ -123,8 +123,18 @@
     }
 
     &__logo {
-      width: 100%;
-      height: 100%;
+      width: 140px;
+      height: 58px;
+
+      @media screen and (max-width: 1200px) {
+        width: 120px;
+        height: 50px;
+      }
+
+      @media screen and (max-width: 680px) {
+        width: 105px;
+        height: 44px;
+      }
     }
 
     &__nav-link {

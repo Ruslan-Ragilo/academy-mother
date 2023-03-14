@@ -30,8 +30,6 @@
           prevEl: prevRev,
           nextEl: nextRev,
         }"
-        @swiper="onSwiper"
-        @slideChange="onSlideChange"
         :breakpoints="{
       1281: {
         slidesPerView: 2,       
@@ -164,13 +162,6 @@ let el = ref(null)
         currSelected.value = value
       }
 
-      const onSwiper = (swiper) => {
-        console.log(swiper);
-      };
-      const onSlideChange = () => {
-        console.log('slide change');
-      };
-
       const prevRev = ref(null);
       const nextRev = ref(null);
       return {
@@ -182,8 +173,6 @@ let el = ref(null)
         currSelected,
         wrapperSlider,
         modules: [Navigation],
-        onSwiper,
-        onSlideChange,
         prevRev,
         nextRev
       }
@@ -200,7 +189,7 @@ let el = ref(null)
 .slider {
   margin-top: 40px;
   max-width: 100%;
-  position: absolute;
+  // position: absolute;
   overflow: hidden;
   top: 0;
   left: 0;  
@@ -222,6 +211,7 @@ let el = ref(null)
     position: relative;
     display: flex;
     justify-content: space-between;
+    width: 100px;
 
     @media screen and (max-width: 700px) {
       margin-top: 40px;
@@ -234,10 +224,12 @@ let el = ref(null)
       right: auto;
       position: static;
       margin-top: 0;
+      transform: translate(0);
     }
 
     .swiper-button-prev {
       left: -40px;
+      transform: rotate(180deg)
     }
 
     .swiper-button-next {
