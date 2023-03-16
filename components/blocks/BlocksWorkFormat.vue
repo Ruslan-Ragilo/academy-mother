@@ -40,7 +40,7 @@
         Напишите нам — мы поможем
       </h3>
       <div class="work-format__message-us-button-container">
-        <elements-buttons-secondary title="Написать в Telegram" />
+        <elements-buttons-secondary link="https://t.me/academ_mom_bot" title="Написать в Telegram" />
       </div>
     </div>
   </div>

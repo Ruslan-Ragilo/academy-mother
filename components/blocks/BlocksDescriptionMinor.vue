@@ -135,6 +135,11 @@
 
   &__image {
     width: 466px;
+
+    @media screen and (max-width: 550px) {
+      width: 100%;
+    }
+
   }
 
   &__image-circle-figure {

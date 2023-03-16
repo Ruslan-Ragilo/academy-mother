@@ -1,6 +1,7 @@
 <template>
   <div class="button-secondary" :style="calculateStyles">
-    {{ title }}
+    <div v-if="!link">{{ title }}</div>
+    <a v-else :href="link">{{ title }}</a>
   </div>
 </template>
 
@@ -14,6 +15,10 @@ export default {
     hoverBackground: {
       type: String,
       default: '#644C5C'
+    },
+    link: {
+      type: String,
+      default: ''
     }
   },
 
@@ -41,6 +46,11 @@ export default {
     display: inline-block;
     text-align: center;
     margin: 20px 0 0 0;
+
+    a {
+      text-decoration: none;
+      color: #644C5C;
+    }
 
     @media screen and (max-width: 680px) {
       font-size: 16px;

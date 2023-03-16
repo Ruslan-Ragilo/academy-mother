@@ -7,7 +7,7 @@
   <div @click.self="isOpenPopup = false" class="overlay__popup-webinars" :class="{active: isOpenPopup}">
     <div class="popup">
       <lazy-svg-close-popup class="close-popup" @click.native="isOpenPopup = false" />
-      <div style="margin-bottom: 20px;" v-for="item in webinars?.getDataWebinars[indexPopup]?.attributes?.popupInfo">
+      <div style="margin-bottom: 80px;" v-for="item in webinars?.getDataWebinars[indexPopup]?.attributes?.popupInfo">
         <h2>{{ item?.title }}</h2>
         <p class="for-who">{{item?.subTitle }}</p>
         <h2 style="margin-bottom: 20px;" v-if="item?.About?.length">О чем поговорим?</h2>
@@ -16,7 +16,7 @@
         </ul>
       </div>
       <div class="block-author">
-        <img :src="'http://95.163.236.196:1337' + webinars?.getDataWebinars[indexPopup]?.attributes?.imageAuthor?.data?.attributes?.url" alt="">
+        <img :src="'http://95.163.236.196:1337' + webinars?.getDataWebinars[indexPopup]?.attributes?.imageAuthor?.data[0].attributes?.url" alt="">
         <div>
           <p>Автор вебинара</p>
           <p>{{webinars?.getDataWebinars[indexPopup]?.attributes?.author}}</p>
@@ -34,7 +34,13 @@
         <p class="who-be">{{ item.attributes.whoBe }}</p>
         <h2>{{ item.attributes.heading }}</h2>
         <p v-html="item.attributes.description" class="how-can-help"></p>
-        <button @click.native="setIsOpen(index)" class="details">Подробнее</button>
+        <button @click.native="setIsOpen(index)" class="details">
+          <span>Подробнее</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+            <line x1="1" y1="12.1582" x2="24" y2="12.1582" stroke="#064848" stroke-width="2" stroke-linecap="round"/>
+            <line x1="12.8418" y1="1" x2="12.8418" y2="24" stroke="#064848" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
         <div class="wraper-price">
           <div>
             <p>СТОИМОСТЬ ПРОГРАММЫ</p>
@@ -100,17 +106,26 @@
         border-top: 1px solid rgba(197, 177, 178, 1);
         border-bottom: 1px solid rgba(197, 177, 178, 1);
         padding: 20px 0;
-        color:rgba(120, 53, 62, 1);
         text-align: left;
         background-color: transparent;
-        font-size: 22px;
-        font-weight: 700;
-        font-family: Oswald;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        span {
+          color:rgba(120, 53, 62, 1);
+          font-size: 22px;
+          font-weight: 700;
+          font-family: Oswald;
+
+          @media screen and (max-width: 680px) {
+            font-size: 18px;
+          }
+        }
 
         @media screen and (max-width: 680px) {
           margin-bottom: 30px;
-          font-size: 18px;
         }
       }
     

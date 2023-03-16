@@ -1,10 +1,10 @@
 <template>
   <div class="reviews-block">
     <h3 class="reviews-block__title">
-      Мы уже помогли многим женщинам
+      {{ heading }}
     </h3>
     <div class="wrappernavSel">
-      <elements-custom-select
+      <elements-custom-select v-if="reviewsIsShow"
       class="reviews-block__select"
       :label="currSelected"
       :items="optionsArray"
@@ -112,6 +112,16 @@ let el = ref(null)
     components: {
       Swiper,
       SwiperSlide
+    },
+    props: {
+      reviewsIsShow: {
+        type: Boolean,
+        default: false
+      },
+      heading: {
+        type: String,
+        default: ""
+      }
     },
     methods: {
       showDetails(e) {

@@ -1,6 +1,6 @@
 <template>
   <div v-if="isOpened">
-    <elements-modals-keeper :is-modal-opened="isOpened" @close="$emit('close')">
+    <elements-modals-keeper :is-modal-opened="isOpened" @close="closePopup()">
       <div v-if="showResult === null">
         <h2 class="modal-test__title">
           {{ getCurrentQuestion?.question }}
@@ -30,8 +30,7 @@
           Подходящие вам продукты:
         </h2>
         <ul>
-          <li class="modal-test__option-item" v-for="option in getResult?.options">
-            {{ option.label }}
+          <li v-html="option.label" class="modal-test__option-item" v-for="option in getResult?.options">
           </li>
         </ul>
       </div>
@@ -221,18 +220,13 @@ const results = [
     id: 1,
     options: [
       {
-        label: 'Вебинар «Бесплодие. Целостный взгляд\n' +
-                'на проблему. Как оптимально достичь\n' +
-                'родов'
+        label: 'Вебинар <a class="item-res" href="/webinars">«Бесплодие. Целостный взгляд <br> на проблему. Как оптимально достичь <br> родов</a>'
       },
       {
-        label: 'Вебинар «Авторские протоколы ведения\n' +
-              'беременности групп высокого риска.\n' +
-              'Обоснованные индивидуализированные\n' +
-              'стратегии за рамками стандартов»'
+        label: 'Вебинар <a class="item-res" href="/webinars">«Авторские протоколы ведения <br> беременности групп высокого риска. <br> Обоснованные индивидуализированные <br> стратегии за рамками стандартов»</a>'
       },
       {
-        label: 'ПАКЕТ ВЕБИНАРОВ ДЛЯ ВРАЧЕЙ'
+        label: '<a class="item-res" href="formedworkers">ПАКЕТ ВЕБИНАРОВ ДЛЯ ВРАЧЕЙ</a>'
       }
     ]
   },
@@ -240,20 +234,19 @@ const results = [
     id: 2,
     options: [
       {
-        label: 'Школа беременных'
+        label: '<a class="item-res" href="/school">Школа беременных</a>'
       },
       {
-        label: 'Гайд "ОРЗ при беременности"'
+        label: 'Гайд <a class="item-res" href="/guides""ОРЗ при беременности"</a>'
       },
       {
-        label: 'Вебинар "Анализы и обследования во\n' +
-              'время беременности"'
+        label: 'Вебинар <a class="item-res" href="/webinars">"Анализы и обследования во<br> время беременности"</a>'
       },
       {
-        label: 'Вебинар "ГСД"'
+        label: 'Вебинар <a class="item-res" href="/webinars">"ГСД"</a>'
       },
       {
-        label: 'Гайд по питанию'
+        label: '<a class="item-res" href="/guides"Гайд по питанию</a>'
       }
     ]
   },
@@ -261,7 +254,7 @@ const results = [
     id: 3,
     options: [
       {
-        label: 'ВЕБИНАР "КОНТРАЦЕПЦИЯ"'
+        label: 'ВЕБИНАР <a class="item-res" href="/webinars">"КОНТРАЦЕПЦИЯ"</a>'
       },
     ]
   },
@@ -269,11 +262,10 @@ const results = [
     id: 4,
     options: [
       {
-        label: 'ВЕБИНАР "ЕСЛИ ДОЛГО НЕ НАСТУПАЕТ\n' +
-            'БЕРЕМЕННОСТЬ"\n'
+        label: 'ВЕБИНАР <a class="item-res" href="/webinars">"ЕСЛИ ДОЛГО НЕ НАСТУПАЕТ <br> БЕРЕМЕННОСТЬ"</a><br>'
       },
       {
-        label: 'ПРОЕКТ "РЕПРО ОЖИВИ ЯИЧНИКИ'
+        label: 'ПРОЕКТ <a class="item-res" href="/projects">"РЕПРО ОЖИВИ ЯИЧНИКИ</a>'
       },
     ]
   },
@@ -281,12 +273,10 @@ const results = [
     id: 5,
     options: [
       {
-        label: 'ВЕБИНАР "ЧТО ДЕЛАТЬ, ЕСЛИ БЫЛИ\n' +
-            'ПОТЕРИ"\n'
+        label: 'ВЕБИНАР <a class="item-res" href="/webinars">"ЧТО ДЕЛАТЬ, ЕСЛИ БЫЛИ <br> ПОТЕРИ"</a><br>'
       },
       {
-        label: 'ПАКЕТ ВЕБИНАРОВ "ПОДГОТОВКА К\n' +
-            'БЕРЕМЕННОСТИ"\n'
+        label: 'ПАКЕТ ВЕБИНАРОВ <a class="item-res" href="/webinars">"ПОДГОТОВКА К <br> БЕРЕМЕННОСТИ"</a><br>'
       },
     ]
   },
@@ -294,7 +284,7 @@ const results = [
     id: 6,
     options: [
       {
-        label: 'ПАКЕТ ВЕБИНАРОВ "ПОДГОТОВКА К БЕРЕМЕННОСТИ"'
+        label: 'ПАКЕТ ВЕБИНАРОВ <a class="item-res" href="/webinars">"ПОДГОТОВКА К БЕРЕМЕННОСТИ"</a>'
       }
     ]
   },
@@ -302,10 +292,10 @@ const results = [
     id: 7,
     options: [
       {
-        label: 'ВЕБИНАР "КОНТРАЦЕПЦИЯ'
+        label: 'ВЕБИНАР <a class="item-res" href="/webinars">"КОНТРАЦЕПЦИЯ"</a>'
       },
       {
-        label: 'ПРОЕКТ "ОЖИВИ ЯИЧНИКИ - МЕНО'
+        label: 'ПРОЕКТ <a class="item-res" href="/projects">"ОЖИВИ ЯИЧНИКИ - МЕНО"</a>'
       }
     ]
   },
@@ -313,7 +303,7 @@ const results = [
     id: 8,
     options: [
       {
-        label: 'ВЕБИНАР "КОНТРАЦЕПЦИЯ"'
+        label: 'ВЕБИНАР <a class="item-res" href="/webinars">"КОНТРАЦЕПЦИЯ"</a>'
       }
     ]
   },
@@ -321,7 +311,7 @@ const results = [
     id: 9,
     options: [
       {
-        label: 'СТАТЬИ С ХЕШТЕГОМ МЕНОПАУЗА'
+        label: '<a class="item-res" href="/articles">СТАТЬИ С ХЕШТЕГОМ МЕНОПАУЗА</a>'
       }
     ]
   }
@@ -335,9 +325,9 @@ const results = [
       }
     },
 
-    emits: ['close'],
+    // emits: ['close'],
 
-    setup () {
+    setup (props, { emit }) {
       const currentQuestion = ref(1)
       const picked = ref(null)
       const showResult = ref(null)
@@ -349,6 +339,12 @@ const results = [
       const getResult = computed(() => {
         return results.find((item) => item.id === showResult.value)
       })
+
+      function closePopup () {
+        emit('close');
+        currentQuestion.value = 1
+        showResult.value = null
+      }
 
       function nextStep () {
         if (picked.value?.redirectTo) {
@@ -368,7 +364,8 @@ const results = [
         showResult,
         getResult,
         getCurrentQuestion,
-        nextStep
+        nextStep,
+        closePopup
       }
     }
   }
@@ -410,6 +407,11 @@ const results = [
     &__option-item {
       color: #644C5C;
       font-size: 16px;
+
+      .item-res {
+        text-decoration: none;
+        color: inherit;
+      }
 
       &:not(:last-child) {
         margin: 0 0 5px 0;

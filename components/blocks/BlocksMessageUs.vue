@@ -1,15 +1,15 @@
 <template>
-  <div class="message-us__message-us-block">
+  <div :class="'message-us' +  clazz">
     <svg-union class="message-us__union" />
     <svg-arrow class="message-us__arrow" />
     <svg-pine-icon class="message-us__pine" />
     <svg-cheese-icon class="message-us__cheese" />
     <svg-oval-icon class="message-us__oval" />
-    <svg-star-nine class="message-us__star-nine" />
+    <!-- <svg-star-nine class="message-us__star-nine" /> -->
     <div class="message-us__message-us-title">
       <h3 class="message-us__message-us-title" v-html="label" />
       <div class="message-us__message-us-button-container">
-        <elements-buttons-secondary title="Написать в Telegram" />
+        <elements-buttons-secondary link="https://t.me/academ_mom_bot" title="Написать в Telegram" />
       </div>
     </div>
   </div>
@@ -21,6 +21,10 @@
       label: {
         type: String,
         default: `Остались вопросы?<br> Напишите нам — мы поможем`
+      },
+      clazz: {
+        type: String,
+        default: '__message-us-block'
       }
     }
   }
@@ -28,6 +32,15 @@
 
 <style lang="scss" scoped>
   .message-us {
+    &__message-us-secondary {
+      background-color: #C5B1B2;  
+      width: 100%;
+      position: relative;
+      padding: 80px 20px;
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+    }
 
     &__message-us-block {
       width: 100%;

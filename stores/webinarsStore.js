@@ -13,6 +13,7 @@ export const useWebinarsStore = defineStore('webinarsStore', {
   },
   getters: {
     getDataWebinars(state) {
+      console.log(state.dataWebinars);
       return state.dataWebinars
     },
   }
