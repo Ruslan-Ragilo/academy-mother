@@ -237,7 +237,7 @@ const results = [
         label: '<a class="item-res" href="/school">Школа беременных</a>'
       },
       {
-        label: 'Гайд <a class="item-res" href="/guides""ОРЗ при беременности"</a>'
+        label: 'Гайд <a class="item-res" href="/guides">"ОРЗ при беременности"</a>'
       },
       {
         label: 'Вебинар <a class="item-res" href="/webinars">"Анализы и обследования во<br> время беременности"</a>'
@@ -246,7 +246,7 @@ const results = [
         label: 'Вебинар <a class="item-res" href="/webinars">"ГСД"</a>'
       },
       {
-        label: '<a class="item-res" href="/guides"Гайд по питанию</a>'
+        label: '<a class="item-res" href="/guides">Гайд по питанию</a>'
       }
     ]
   },

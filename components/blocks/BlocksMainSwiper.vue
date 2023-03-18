@@ -1,7 +1,11 @@
 <script setup>
+  import { onMounted } from 'vue';
   import { useSliderComand  } from '~/stores/sliderComand'
   const sliderComand = useSliderComand();
-  sliderComand.fetchDataSliderComand();
+  onMounted(() => {
+    console.log('mounted');
+    sliderComand.fetchDataSliderComand();
+  })
 </script>
 <template>
   <div class="main-swiper">
@@ -26,8 +30,9 @@
       @swiper="onSwiper"
       @slideChange="onSlideChange"
       >
-        <swiper-slide v-for="item in sliderComand.getSliderComand">
+        <swiper-slide v-for="(item, index) in sliderComand.getSliderComand">
           <elements-main-swiper-item
+            :key="index"
             :title="item.fullName"
             :text="item.title"
             :photo="'http://95.163.236.196:1337' + item.avatar.data.attributes.url"
@@ -118,6 +123,7 @@ import 'swiper/css/navigation';
 
     methods: {
       openModal (params) {
+        console.log(params);
         this.modalInfo = { ...params }
         this.switchModal()
       },

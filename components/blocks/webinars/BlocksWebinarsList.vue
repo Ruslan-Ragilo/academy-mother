@@ -1,7 +1,11 @@
 <script setup>
+  import { onMounted } from 'vue';
   import { useWebinarsStore } from '~/stores/webinarsStore'
   const webinars = useWebinarsStore();
-  webinars.fetchDataWebinars();
+  onMounted(() => {
+    webinars.fetchDataWebinars();
+  })
+  
 </script>
 <template>
   <div @click.self="isOpenPopup = false" class="overlay__popup-webinars" :class="{active: isOpenPopup}">
@@ -358,12 +362,22 @@
           font-size: 18px;
           color: white;
           text-align: center;
+
+          @media screen and (max-width: 680px) {
+            width: 180px;
+            font-size: 14px;
+          }
+
+          @media screen and (max-width: 500px) {
+            width: 160px;
+            font-size: 14px;
+            padding: 25px 0;
+          }
         }
 
         img {
           @media screen and (max-width: 1280px) {
-            width: 198px;
-            height: 180px;
+            width: 100%;
             margin-bottom: 60px;
           }
 

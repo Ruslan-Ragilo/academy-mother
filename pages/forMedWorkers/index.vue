@@ -30,11 +30,23 @@
         </div>
       </div>
     </elements-modals-keeper>
+    <div class="overlay" v-if="isOpemAgreement">
+      <div class="modal-agreement">
+        <svg-close-popup class="closePopup" @click="isOpemAgreement = false"/>
+        <h3 class="med-workers-page__modal-title">Данный информационный сайт предназначен исключительно для медицинских работников</h3>
+        <p v-html="contentPopup?.text "></p>
+        <div class="wrapperBtn">
+          <button @click="isOpemAgreement = false">Соглашаюсь</button>
+          <button @click="isOpemAgreement = false">Не соглашаюсь</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import {useForMedWork} from '~/stores/formedWorkStore'
+import { onMounted } from 'vue'
 
 const descriptionTitle = 'Элисо Джобава — профессор, доктор медицинских наук, специалист по трудным и сложным беременностям'
 
@@ -45,11 +57,21 @@ const descriptionItems = [
 ]
 
   export default {
+    
 
     setup () {
+      
+      const contentPopup = {
+        text: "Вся информация сайта <a href='#'>www.---.ru</a> (далее — Информация) может быть доступна исключительно для специалистов системы здравоохранения. В связи с этим для доступа к такой Информации от вас требуется подтверждение вашего статуса и факта наличия у вас профессионального медицинского образования, а также того, что вы являетесь действующим медицинским работником, обладающим соответствующими знаниями и навыками в области медицины, диагностики и здравоохранения РФ. Информация, содержащаяся на настоящем сайте, предназначена исключительно для ознакомления, носит научно-информационный характер и не должна расцениваться в качестве Информации рекламного характера для широкого круга лиц.<br><br> Информация не должна быть использована для замены непосредственной консультации с врачом и для принятия решения о применении лекарственных препаратов самостоятельно.<br><br> На основании вышесказанного, пожалуйста, подтвердите, что вы являетесь действующим медицинским работником, либо иным работником системы здравоохранения."
+      }
+      const isOpemAgreement = ref(false);
       const isModalOpened = ref(false)
       const store = useForMedWork();
       store.fetchDataMedWor()
+
+      onMounted(() => {
+        isOpemAgreement.value = true
+      })
 
       const currentModalData = ref(null)
 
@@ -64,18 +86,88 @@ const descriptionItems = [
 
       return {
         descriptionItems,
+        isOpemAgreement,
         descriptionTitle,
         isModalOpened,
         currentModalData,
         switchModal,
         openModal,
-        store
+        store,
+        contentPopup
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
+  .overlay {
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .6);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 74px;
+
+    @media screen and (max-width: 690px) {
+      padding: 0 10px;
+    }
+
+    .closePopup {
+      position: absolute;
+      right: 30px;
+      top: 30px;
+      cursor: pointer;
+
+      @media screen and (max-width: 690px) {
+        right: 10px;
+        top: 10px;
+        width: 15px;
+      }
+    }
+
+    .modal-agreement {
+      position: relative;
+      max-width: 760px;
+      width: 100%;
+      background: #ECE7E1;
+      padding: 60px;
+
+      @media screen and (max-width: 690px) {
+        padding: 30px;
+      }
+    }
+
+    .wrapperBtn {
+      display: flex;
+      gap: 40px;
+      margin-top: 40px;
+
+      @media screen and (max-width: 690px) {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      button {
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 600;
+        padding: 18px 0;
+        color: #FEF8F2;
+        width: 205px;
+        background-color: #064848;
+        border: none;
+        border-radius: 5px;
+
+        @media screen and (max-width: 690px) {
+          padding: 17px 0;
+        }
+      }
+    }
+  }
+  
   .med-workers-page {
 
     &__modal-title {
