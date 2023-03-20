@@ -1,0 +1,5 @@
+const ElementsPopup_vue_vue_type_style_index_0_scoped_d13d0cc0_lang = ".overlay-popup[data-v-d13d0cc0]{align-items:center;background-color:rgba(0,0,0,.3);display:flex;height:0;justify-content:center;opacity:0;overflow-y:scroll;position:fixed;top:0;transition:.3s;visibility:none;width:100vw;z-index:11}.overlay-popup.active[data-v-d13d0cc0]{height:100%;opacity:1}.overlay-popup .popup[data-v-d13d0cc0]{background:#ece7e1;margin:30px;padding:60px 160px 60px 60px;position:relative}@media screen and (max-width:1200px){.overlay-popup .popup[data-v-d13d0cc0]{padding-right:90px}}@media screen and (max-width:680px){.overlay-popup .popup[data-v-d13d0cc0]{background:#fef8f2;padding:30px}}.overlay-popup .popup .close-popup[data-v-d13d0cc0]{cursor:pointer;position:absolute;right:30px;top:30px}@media screen and (max-width:680px){.overlay-popup .popup .close-popup[data-v-d13d0cc0]{right:20px}}";
+export {
+  ElementsPopup_vue_vue_type_style_index_0_scoped_d13d0cc0_lang as default
+};
+//# sourceMappingURL=ElementsPopup-styles-1.mjs.0631c4c1.js.map

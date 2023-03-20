@@ -10,7 +10,6 @@ export const useReviewsSlider = defineStore('reviewsSlider', {
       if (!this.typeReviews) {
         return this.dataReviewsSlider
       } else {
-        console.log(this.dataReviewsSlider.filter(el => el.typeReviews === this.typeReviews));
         return this.dataReviewsSlider.filter(el => el.typeReviews === this.typeReviews)
       }
       
@@ -18,6 +17,7 @@ export const useReviewsSlider = defineStore('reviewsSlider', {
   },
   actions: {
     async fetchDataReviewsSlider() {
+      console.log('rev');
       const res = await fetch(import.meta.env.VITE_URL_API + '/api/reviews-sliders');
       const data = await res.json()
       this.dataReviewsSlider = data.data.map(el => el.attributes)

@@ -1,0 +1,5 @@
+const BlocksSchoolVideo_vue_vue_type_style_index_0_scoped_9804d0c2_lang = ".school-video[data-v-9804d0c2]{display:flex;padding:80px 0;width:100%}@media screen and (max-width:1200px){.school-video[data-v-9804d0c2]{flex-direction:column-reverse}}.school-video__left-column[data-v-9804d0c2],.school-video__right-column[data-v-9804d0c2]{width:40%}@media screen and (max-width:1200px){.school-video__left-column[data-v-9804d0c2],.school-video__right-column[data-v-9804d0c2]{width:100%}}.school-video__left-column[data-v-9804d0c2]{margin:0 20% 0 0}@media screen and (max-width:1200px){.school-video__left-column[data-v-9804d0c2]{margin:50px 0 0}}.school-video__title[data-v-9804d0c2]{color:#fef8f2;font-size:26px;line-height:130%;margin:0}.school-video__text[data-v-9804d0c2]{color:#fef8f2;font-size:16px;line-height:150%;margin:20px 0 0}@media screen and (max-width:680px){.school-video__text[data-v-9804d0c2]{font-size:15px}}.school-video__video[data-v-9804d0c2]{border-radius:15px;height:260px;overflow:hidden}";
+export {
+  BlocksSchoolVideo_vue_vue_type_style_index_0_scoped_9804d0c2_lang as default
+};
+//# sourceMappingURL=BlocksSchoolVideo-styles-1.mjs.ffc92d2a.js.map

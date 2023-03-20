@@ -1,0 +1,194 @@
+import { f as __nuxt_component_1 } from "./SvgOvalIcon.01ba50c0.js";
+import { _ as __nuxt_component_0$1 } from "./SvgPlusIcon.4cbd6291.js";
+import { _ as __nuxt_component_5 } from "./BlocksTest.19d833f3.js";
+import { useSSRContext, ref, mergeProps } from "vue";
+import { ssrRenderAttrs, ssrRenderComponent, ssrRenderAttr, ssrInterpolate, ssrRenderList } from "vue/server-renderer";
+import { _ as _export_sfc, d as defineStore } from "../server.mjs";
+import { _ as __nuxt_component_1$1 } from "./BlocksWorkersCardList.e0826287.js";
+import { _ as __nuxt_component_2 } from "./BlocksMessageUs.b5d35185.js";
+import "./ElementsModalsKeeper.257a82fa.js";
+import "ofetch";
+import "#internal/nitro";
+import "hookable";
+import "unctx";
+import "destr";
+import "ufo";
+import "h3";
+import "@vue/devtools-api";
+import "@unhead/vue";
+import "@unhead/dom";
+import "vue-router";
+import "defu";
+const _imports_0 = "" + globalThis.__buildAssetsURL("fotocircle.281dc9f1.png");
+const BlocksGuidesIntro_vue_vue_type_style_index_0_scoped_0db17708_lang = "";
+const _sfc_main$1 = {
+  setup() {
+    const isOpened = ref(false);
+    return {
+      isOpened
+    };
+  }
+};
+function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  const _component_svg_heart_icon = __nuxt_component_1;
+  const _component_svg_plus_icon = __nuxt_component_0$1;
+  const _component_blocks_test = __nuxt_component_5;
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "guides-intro" }, _attrs))} data-v-0db17708>`);
+  _push(ssrRenderComponent(_component_svg_heart_icon, { class: "heartIcon" }, null, _parent));
+  _push(ssrRenderComponent(_component_svg_plus_icon, { class: "plusIcon" }, null, _parent));
+  _push(`<img${ssrRenderAttr("src", _imports_0)} class="fotoCircle" alt="" data-v-0db17708><h2 class="guides-intro__title" data-v-0db17708> \u0413\u0430\u0439\u0434\u044B \u0438 \u043C\u0435\u0442\u043E\u0434\u0438\u0447\u043A\u0438 </h2><div class="guides-intro__text" data-v-0db17708> \u041F\u043E\u0434\u0440\u043E\u0431\u043D\u044B\u0435 \u0433\u0430\u0439\u0434\u044B \u0438 \u043C\u0435\u0442\u043E\u0434\u0438\u0447\u043A\u0438, \u043A\u043E\u0442\u043E\u0440\u044B\u0435 \u043F\u043E\u043C\u043E\u0433\u0443\u0442 \u0440\u0430\u0437\u043E\u0431\u0440\u0430\u0442\u044C\u0441\u044F \u0431\u0435\u0440\u0435\u043C\u0435\u043D\u043D\u044B\u043C \u0438 \u043C\u0430\u043C\u0430\u043C \u0432 \u0432\u0430\u0436\u043D\u044B\u0445 \u0432\u043E\u043F\u0440\u043E\u0441\u0430\u0445 </div><div class="guides-intro__button-wrapper" data-v-0db17708><div class="guides-intro__button" data-v-0db17708> \u0412\u044B\u0431\u0440\u0430\u0442\u044C \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B </div></div>`);
+  _push(ssrRenderComponent(_component_blocks_test, {
+    "is-opened": $setup.isOpened,
+    onClose: ($event) => $setup.isOpened = false
+  }, null, _parent));
+  _push(`</div>`);
+}
+const _sfc_setup$1 = _sfc_main$1.setup;
+_sfc_main$1.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/blocks/guides/BlocksGuidesIntro.vue");
+  return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
+};
+const __nuxt_component_0 = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender$1], ["__scopeId", "data-v-0db17708"]]);
+const useGuidesStore = defineStore("guidesStore", {
+  state: () => ({
+    dataGuides: []
+  }),
+  getters: {
+    getDataGuides() {
+      return this.dataGuides;
+    }
+  },
+  actions: {
+    async fetchDataGuides() {
+      console.log("fetch");
+      const res = await fetch("http://95.163.236.196:1337/api/guides?populate=*");
+      const data2 = await res.json();
+      this.dataGuides = data2.data.map((el) => el.attributes);
+    }
+  }
+});
+const index_vue_vue_type_style_index_0_scoped_5f571374_lang = "";
+const data = [
+  {
+    type: "2 pdf-\u0444\u0430\u0439\u043B\u0430 \u0434\u043B\u044F \u0441\u043A\u0430\u0447\u0438\u0432\u0430\u043D\u0438\u044F",
+    title: "\u0413\u0430\u0439\u0434 \u043F\u043E \u043F\u0438\u0442\u0430\u043D\u0438\u044E \u0431\u0435\u0440\u0435\u043C\u0435\u043D\u043D\u044B\u0445 + \u043A\u043D\u0438\u0433\u0430 \u0440\u0435\u0446\u0435\u043F\u0442\u043E\u0432",
+    description: "\u0413\u0430\u0439\u0434 \u043F\u043E\u043C\u043E\u0436\u0435\u0442 \u043F\u043E\u043D\u044F\u0442\u044C, \u043F\u043E\u0447\u0435\u043C\u0443 \u0432\u0435\u0441 \u0442\u0430\u043A \u0432\u0430\u0436\u0435\u043D \u0434\u043B\u044F \u0440\u0435\u043F\u0440\u043E\u0434\u0443\u043A\u0442\u0438\u0432\u043D\u043E\u0439 \u0441\u0438\u0441\u0442\u0435\u043C\u044B \u0438 \u043A\u0430\u043A \u0434\u0435\u0440\u0436\u0430\u0442\u044C \u0435\u0433\u043E \u043F\u043E\u0434 \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u0435\u043C.\u0412 \u043A\u043D\u0438\u0433\u0435 \u0440\u0435\u0446\u0435\u043F\u0442\u043E\u0432 \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u0435\u043D\u043E \u0431\u043E\u043B\u0435\u0435 70-\u0442\u0438 \u0440\u0435\u0446\u0435\u043F\u0442\u043E\u0432 \u0440\u0430\u0437\u043D\u043E\u043E\u0431\u0440\u0430\u0437\u043D\u044B\u0445 \u0441\u0431\u0430\u043B\u0430\u043D\u0441\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u044B\u0445 \u0431\u043B\u044E\u0434, \u043A\u043E\u0442\u043E\u0440\u044B\u0435 \u0431\u044B\u043B\u0438 \u043F\u043E\u0434\u043E\u0431\u0440\u0430\u043D\u044B\u0438 \u0441\u043E\u0441\u0442\u0430\u0432\u043B\u0435\u043D\u044B \u0441\u043E\u0432\u043C\u0435\u0441\u0442\u043D\u043E \u0441 \u0432\u0440\u0430\u0447\u043E\u043C-\u043F\u0435\u0434\u0438\u0430\u0442\u0440\u043E\u043C.",
+    cost: "850 \u0440\u0443\u0431.",
+    isDetailed: true,
+    isSpecial: true,
+    image: "_nuxt/static/images/webinar4.png",
+    for: "\u0414\u043B\u044F \u0431\u0435\u0440\u0435\u043C\u0435\u043D\u043D\u044B\u0445",
+    talkAbout: [
+      "\u2014\xA0\u041E\u0431 \xAB\u0438\u0434\u0435\u0430\u043B\u044C\u043D\u043E\u043C\xBB \u0432\u0435\u0441\u0435 \u0431\u0435\u0440\u0435\u043C\u0435\u043D\u043D\u043E\u0439 \u0436\u0435\u043D\u0449\u0438\u043D\u044B \u0438 \u0440\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0446\u0438\u044F\u0445 \u043F\u043E \u043F\u0440\u0438\u0431\u0430\u0432\u043A\u0435 \u043C\u0430\u0441\u0441\u044B \u0442\u0435\u043B\u0430 \u0432 \u043A\u0430\u0436\u0434\u043E\u043C \u0442\u0440\u0438\u043C\u0435\u0441\u0442\u0440\u0435",
+      "\u2014\xA0\u041E \u0442\u043E\u043C, \u0447\u0435\u043C \u043E\u043F\u0430\u0441\u043D\u0430 \u043D\u0435\u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u0430\u044F \u0434\u0438\u0435\u0442\u0430 \u0434\u043B\u044F \u043C\u0430\u043B\u044B\u0448\u0430",
+      "\u2014\xA0\u041E\u0431 \u043E\u0441\u043D\u043E\u0432\u043D\u044B\u0445 \u043F\u0440\u0438\u043D\u0446\u0438\u043F\u0430\u0445 \u0438 \u0440\u0435\u0436\u0438\u043C\u0435 \u043F\u0438\u0442\u0430\u043D\u0438\u044F \u0432\u043E \u0432\u0440\u0435\u043C\u044F \u0431\u0435\u0440\u0435\u043C\u0435\u043D\u043D\u043E\u0441\u0442\u0438, \u0430 \u0442\u0430\u043A\u0436\u0435 \u043E \u043F\u0438\u0442\u044C\u0435\u0432\u043E\u043C \u0440\u0435\u0436\u0438\u043C\u0435",
+      "\u2014\xA0 \u041E\u0431 \u043E\u0441\u043E\u0431\u0435\u043D\u043D\u043E\u0441\u0442\u044F\u0445 \u043F\u0438\u0442\u0430\u043D\u0438\u044F \u043F\u0440\u0438 \u043D\u0430\u0440\u0443\u0448\u0435\u043D\u0438\u044F\u0445 \u0443\u0433\u043B\u0435\u0432\u043E\u0434\u043D\u043E\u0433\u043E \u043E\u0431\u043C\u0435\u043D\u0430 \u0438 \u0433\u0435\u0441\u0442\u0430\u0446\u0438\u043E\u043D\u043D\u043E\u043C \u0434\u0438\u0430\u0431\u0435\u0442\u0435 (\u0434\u0438\u0430\u0431\u0435\u0442\u0435 \u0431\u0435\u0440\u0435\u043C\u0435\u043D\u043D\u044B\u0445)",
+      "\u2014 \u041E\u0431 \u043E\u0441\u043E\u0431\u0435\u043D\u043D\u043E\u0441\u0442\u044F\u0445 \u043F\u0438\u0442\u0430\u043D\u0438\u044F \u043F\u0440\u0438 \u043F\u043E\u0432\u044B\u0448\u0435\u043D\u0438\u0438 \u0441\u0432\u0435\u0440\u0442\u044B\u0432\u0430\u043D\u0438\u044F \u043A\u0440\u043E\u0432\u0438",
+      "\u2014 \u041E\u0431 \u043E\u0441\u043E\u0431\u0435\u043D\u043D\u043E\u0441\u0442\u044F\u0445 \u043F\u0438\u0442\u0430\u043D\u0438\u044F \u043F\u0440\u0438 \u0441\u043A\u043B\u043E\u043D\u043D\u043E\u0441\u0442\u0438 \u043A \u0433\u0430\u0437\u043E\u043E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u043D\u0438\u044E \u0438 \u0432\u0437\u0434\u0443\u0442\u0438\u044E",
+      "\u2014 \u041E\u0431 \u043E\u0441\u043E\u0431\u0435\u043D\u043D\u043E\u0441\u0442\u044F\u0445 \u043F\u0438\u0442\u0430\u043D\u0438\u044F \u043F\u0440\u0438 \u0441\u043A\u043B\u043E\u043D\u043D\u043E\u0441\u0442\u0438 \u043A \u043E\u0442\u0435\u043A\u0430\u043C"
+    ]
+  },
+  {
+    type: "1 pdf-\u0444\u0430\u0439\u043B \u0434\u043B\u044F \u0441\u043A\u0430\u0447\u0438\u0432\u0430\u043D\u0438\u044F",
+    title: "\u0413\u0430\u0439\u0434 \xAB\u041F\u043B\u043E\u0441\u043A\u0438\u0439 \u0436\u0438\u0432\u043E\u0442\u0438\u043A \u043F\u043E\u0441\u043B\u0435 \u0440\u043E\u0434\u043E\u0432/\u043A\u0435\u0441\u0430\u0440\u0435\u0432\u0430 \u0441\u0435\u0447\u0435\u043D\u0438\u044F\xBB",
+    description: "\u0413\u0430\u0439\u0434 \u0434\u0430\u0441\u0442 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044E \u043E \u043F\u0440\u043E\u0444\u0438\u043B\u0430\u043A\u0442\u0438\u043A\u0435 \u0440\u0430\u0441\u0442\u044F\u0436\u0435\u043A \u0438 \u0434\u0438\u0430\u0441\u0442\u0430\u0437\u0430 \u0432\u043E \u0432\u0440\u0435\u043C\u044F \u0431\u0435\u0440\u0435\u043C\u0435\u043D\u043D\u043E\u0441\u0442\u0438 \u0438 \u0432 \u043F\u043E\u0441\u043B\u0435\u0440\u043E\u0434\u043E\u0432\u043E\u043C \u043F\u0435\u0440\u0438\u043E\u0434\u0435,\u0430 \u0442\u0430\u043A\u0436\u0435 \u043F\u043E\u043C\u043E\u0436\u0435\u0442 \u0443\u0437\u043D\u0430\u0442\u044C \u0432\u0441\u0451 \u043E \xAB\u043A\u043E\u043C\u0444\u043E\u0440\u0442\u043D\u044B\u0445\xBB \u0441\u043F\u043E\u0441\u043E\u0431\u0430\u0445 \u0441\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u044F \u0444\u0438\u0433\u0443\u0440\u044B.",
+    cost: "1.000 \u0440\u0443\u0431.",
+    isDetailed: true,
+    isSpecial: true,
+    image: "_nuxt/static/images/webinar5.png",
+    for: "\u0414\u043B\u044F \u0431\u0435\u0440\u0435\u043C\u0435\u043D\u043D\u044B\u0445, \u0434\u043B\u044F \u0436\u0435\u043D\u0449\u0438\u043D \u043F\u043E\u0441\u043B\u0435 \u0440\u043E\u0434\u043E\u0432",
+    talkAbout: [
+      "\u2014\xA0\u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0446\u0438\u0438 \u043F\u043E \u043F\u0440\u043E\u0444\u0438\u043B\u0430\u043A\u0442\u0438\u043A\u0435 \u0440\u0430\u0441\u0442\u044F\u0436\u0435\u043A",
+      "\u2014\xA0\u0421\u0445\u0435\u043C\u044B \u0434\u043E\u0431\u0430\u0432\u043E\u043A \u0438 \u043A\u043E\u043C\u043F\u0440\u0435\u0441\u0441\u043E\u0432 \u0434\u043B\u044F \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u0430\u043D\u0438\u044F \u044D\u043B\u0430\u0441\u0442\u0438\u0447\u043D\u043E\u0441\u0442\u0438 \u043A\u043E\u0436\u0438 \u0432\u043E \u0432\u0440\u0435\u043C\u044F \u0438 \u043F\u043E\u0441\u043B\u0435 \u0431\u0435\u0440\u0435\u043C\u0435\u043D\u043D\u043E\u0441\u0442\u0438",
+      "\u2014\xA0\u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0446\u0438\u0438 \u043F\u043E \u043F\u0440\u043E\u0444\u0438\u043B\u0430\u043A\u0442\u0438\u043A\u0435 \u0438 \u043A\u043E\u0440\u0440\u0435\u043A\u0446\u0438\u0438 \u0434\u0438\u0430\u0441\u0442\u0430\u0437\u0430",
+      "\u2014\xA0\u0421\u0445\u0435\u043C\u044B \u0442\u0435\u0439\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F \u0436\u0438\u0432\u043E\u0442\u0430 \u0432 \u043F\u043E\u0441\u043B\u0435\u0440\u043E\u0434\u043E\u0432\u043E\u043C \u043F\u0435\u0440\u0438\u043E\u0434\u0435",
+      "\u2014\xA0\u0412\u0438\u0434\u044B \u0438 \u0442\u0435\u0445\u043D\u0438\u043A\u0430 \u043F\u043E\u0434\u0432\u044F\u0437\u044B\u0432\u0430\u043D\u0438\u044F",
+      "\u2014 \u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0446\u0438\u0438 \u043F\u043E \u0441\u043F\u043E\u0440\u0442\u0443 \u0438 \u043E\u0431\u0440\u0430\u0437\u0443 \u0436\u0438\u0437\u043D\u0438 \u0434\u043B\u044F \u0441\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u044F \u0444\u0438\u0433\u0443\u0440\u044B \u0432\u043E \u0432\u0440\u0435\u043C\u044F \u0431\u0435\u0440\u0435\u043C\u0435\u043D\u043D\u043E\u0441\u0442\u0438 \u0438 \u043F\u043E\u0441\u043B\u0435 \u0440\u043E\u0434\u043E\u0432"
+    ]
+  },
+  {
+    type: "1 pdf-\u0444\u0430\u0439\u043B \u0434\u043B\u044F \u0441\u043A\u0430\u0447\u0438\u0432\u0430\u043D\u0438\u044F",
+    title: "\u041C\u0435\u0442\u043E\u0434\u0438\u0447\u043A\u0430 \xAB\u041E\u0441\u0442\u0440\u044B\u0435 \u0440\u0435\u0441\u043F\u0438\u0440\u0430\u0442\u043E\u0440\u043D\u044B\u0435 \u0437\u0430\u0431\u043E\u043B\u0435\u0432\u0430\u043D\u0438\u044F \u0438 \u0431\u0435\u0440\u0435\u043C\u0435\u043D\u043D\u043E\u0441\u0442\u044C\xBB",
+    description: "\u041C\u0435\u0442\u043E\u0434\u0438\u0447\u043A\u0430 \u0441\u043E\u0434\u0435\u0440\u0436\u0438\u0442 \u0440\u043E\u0441\u0441\u0438\u0439\u0441\u043A\u0438\u0435 \u0438 \u043C\u0435\u0436\u0434\u0443\u043D\u0430\u0440\u043E\u0434\u043D\u044B\u0435 \u0432\u0430\u0440\u0438\u0430\u043D\u0442\u044B \u0441\u0430\u043C\u043E\u043F\u043E\u043C\u043E\u0449\u0438 \u043F\u0440\u0438 \u043F\u043E\u044F\u0432\u043B\u0435\u043D\u0438\u0438 \u0441\u0438\u043C\u043F\u0442\u043E\u043C\u043E\u0432\u0440\u0435\u0441\u043F\u0438\u0440\u0430\u0442\u043E\u0440\u043D\u043E\u0433\u043E \u0437\u0430\u0431\u043E\u043B\u0435\u0432\u0430\u043D\u0438\u044F \u0443 \u0431\u0435\u0440\u0435\u043C\u0435\u043D\u043D\u044B\u0445. \u041B\u044E\u0431\u044B\u0435 \u043D\u0435\u0434\u043E\u043C\u043E\u0433\u0430\u043D\u0438\u044F \u0432\u043E \u0432\u0440\u0435\u043C\u044F \u0431\u0435\u0440\u0435\u043C\u0435\u043D\u043D\u043E\u0441\u0442\u0438 \u0442\u0440\u0435\u0431\u0443\u044E\u0442 \u043E\u0441\u043E\u0431\u043E\u0433\u043E \u0432\u043D\u0438\u043C\u0430\u043D\u0438\u044F \u0438\u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u043E\u0433\u043E \u043F\u043E\u0434\u0431\u043E\u0440\u0430 \u0441\u0440\u0435\u0434\u0441\u0442\u0432 \u0434\u043B\u044F \u0443\u0441\u0442\u0440\u0430\u043D\u0435\u043D\u0438\u044F \u043D\u0435\u043F\u0440\u0438\u044F\u0442\u043D\u044B\u0445 \u043E\u0449\u0443\u0449\u0435\u043D\u0438\u0439.",
+    cost: "500 \u0440\u0443\u0431.",
+    isDetailed: true,
+    isSpecial: true,
+    image: "_nuxt/static/images/webinar3.png",
+    for: "\u0414\u043B\u044F \u0431\u0435\u0440\u0435\u043C\u0435\u043D\u043D\u044B\u0445",
+    talkAbout: [
+      "\u2014\xA0\u0427\u0442\u043E \u0438 \u0432 \u043A\u0430\u043A\u0438\u0445 \u0434\u043E\u0437\u0438\u0440\u043E\u0432\u043A\u0430\u0445 \u043F\u0440\u0438\u043D\u0438\u043C\u0430\u0442\u044C \u043F\u0440\u0438 \u043A\u0430\u0448\u043B\u0435, \u043D\u0430\u0441\u043C\u043E\u0440\u043A\u0435, \u0431\u043E\u043B\u0438 \u0432 \u0443\u0448\u0430\u0445 \u0438 \u0433\u043E\u0440\u043B\u0435, \u0442\u0435\u043C\u043F\u0435\u0440\u0430\u0442\u0443\u0440\u0435",
+      "\u2014\xA0\u0427\u0442\u043E \u043F\u043E\u0434\u043E\u0439\u0434\u0435\u0442 \u0434\u043B\u044F \u0441\u0430\u043C\u043E\u0441\u0442\u043E\u044F\u0442\u0435\u043B\u044C\u043D\u043E\u0433\u043E \u043B\u0435\u0447\u0435\u043D\u0438\u044F \u0434\u043E \u043C\u043E\u043C\u0435\u043D\u0442\u0430, \u043F\u043E\u043A\u0430 \u0432\u044B \u043D\u0435 \u043F\u043E\u043F\u0430\u0434\u0435\u0442\u0435 \u043D\u0430 \u043E\u0447\u043D\u044B\u0439 \u043F\u0440\u0438\u0435\u043C \u043A \u0441\u0432\u043E\u0435\u043C\u0443 \u043B\u0435\u0447\u0430\u0449\u0435\u043C\u0443 \u0432\u0440\u0430\u0447\u0443 (\u0440\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0446\u0438\u0438 \u0434\u043B\u044F \u0440\u0430\u0437\u043D\u044B\u0445 \u0441\u0440\u043E\u043A\u043E\u0432 \u0431\u0435\u0440\u0435\u043C\u0435\u043D\u043D\u043E\u0441\u0442\u0438)",
+      "\u2014 \u0420\u0435\u0430\u0431\u0438\u043B\u0438\u0442\u0430\u0446\u0438\u044F \u043F\u043E\u0441\u043B\u0435 \u043F\u0435\u0440\u0435\u043D\u0435\u0441\u0435\u043D\u043D\u043E\u0433\u043E \u041E\u0420\u0417 \u0438 \u043F\u0440\u043E\u0444\u0438\u043B\u0430\u043A\u0442\u0438\u043A\u0430 \u043E\u0441\u043B\u043E\u0436\u043D\u0435\u043D\u0438\u0439",
+      "\u2014 \u0421\u0445\u0435\u043C\u0430 \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0438 \u043F\u043B\u0430\u0446\u0435\u043D\u0442\u044B \u043A\u0430\u043A \u043E\u0434\u043D\u043E\u0439 \u0438\u0437 \u043E\u0440\u0433\u0430\u043D\u043E\u0432-\u043C\u0438\u0448\u0435\u043D\u0435\u0439, \u0441\u0442\u0440\u0430\u0434\u0430\u044E\u0449\u0438\u0445 \u043F\u0440\u0438 \u0437\u0430\u0431\u043E\u043B\u0435\u0432\u0430\u043D\u0438\u0438"
+    ]
+  }
+];
+const _sfc_main = {
+  setup() {
+    const store = useGuidesStore();
+    store.fetchDataGuides();
+    const isModalOpened = ref(false);
+    const currentModalData = ref(null);
+    function openModal(item) {
+      currentModalData.value = item;
+      console.log(currentModalData);
+      switchModal();
+    }
+    function switchModal() {
+      isModalOpened.value = !isModalOpened.value;
+    }
+    return {
+      data,
+      isModalOpened,
+      currentModalData,
+      switchModal,
+      openModal,
+      store
+    };
+  }
+};
+function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  var _a, _b, _c, _d, _e, _f, _g;
+  const _component_blocks_guides_intro = __nuxt_component_0;
+  const _component_blocks_workers_card_list = __nuxt_component_1$1;
+  const _component_blocks_message_us = __nuxt_component_2;
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "guides section-container" }, _attrs))} data-v-5f571374>`);
+  _push(ssrRenderComponent(_component_blocks_guides_intro, null, null, _parent));
+  _push(ssrRenderComponent(_component_blocks_workers_card_list, {
+    data: $setup.store.getDataGuides,
+    onOpenModal: $setup.openModal
+  }, null, _parent));
+  _push(ssrRenderComponent(_component_blocks_message_us, { class: "guides__message-us" }, null, _parent));
+  if ($setup.isModalOpened) {
+    _push(`<div class="guides__modal" data-v-5f571374><div class="guides__modal-window" data-v-5f571374><div class="guides__close-cross-button" data-v-5f571374></div><div class="guides__modal-scroll-line" data-v-5f571374><h3 class="guides__modal-title" data-v-5f571374>${ssrInterpolate((_a = $setup.currentModalData) == null ? void 0 : _a.popupGuide.title)}</h3><div class="guides__modal-label" data-v-5f571374>${ssrInterpolate((_b = $setup.currentModalData) == null ? void 0 : _b.popupGuide.subTitle)}</div><h4 class="guides__secondary-title" data-v-5f571374> \u041E \u0447\u0435\u043C \u043F\u043E\u0433\u043E\u0432\u043E\u0440\u0438\u043C? </h4><ul class="guides__modal-list" data-v-5f571374><!--[-->`);
+    ssrRenderList((_c = $setup.currentModalData) == null ? void 0 : _c.popupGuide.About.split("\u2014").slice(1, -1), (item) => {
+      _push(`<li class="guides__modal-item" data-v-5f571374>${ssrInterpolate(item)}</li>`);
+    });
+    _push(`<!--]--></ul>`);
+    if ((_d = $setup.currentModalData) == null ? void 0 : _d.guideEats) {
+      _push(`<div data-v-5f571374><h3 class="guides__modal-title" data-v-5f571374>${ssrInterpolate((_e = $setup.currentModalData) == null ? void 0 : _e.guideEats.title)}</h3><div class="guides__modal-label" data-v-5f571374>${ssrInterpolate((_f = $setup.currentModalData) == null ? void 0 : _f.guideEats.About)}</div></div>`);
+    } else {
+      _push(`<!---->`);
+    }
+    _push(`<!--[-->`);
+    ssrRenderList((_g = $setup.currentModalData) == null ? void 0 : _g.authorGuide, (item) => {
+      _push(`<div class="guides__author-block" data-v-5f571374><img class="guides__author-image"${ssrRenderAttr("src", "http://95.163.236.196:1337/" + item)} data-v-5f571374><div class="guides__about-author" data-v-5f571374><div class="guides__author-label" data-v-5f571374> \u0410\u0432\u0442\u043E\u0440 \u0412\u0435\u0431\u0438\u043D\u0430\u0440\u0430 </div><div class="guides__author-title" data-v-5f571374>${ssrInterpolate(item.authorTitle)}</div></div></div>`);
+    });
+    _push(`<!--]--></div></div></div>`);
+  } else {
+    _push(`<!---->`);
+  }
+  _push(`</div>`);
+}
+const _sfc_setup = _sfc_main.setup;
+_sfc_main.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/guides/index.vue");
+  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
+};
+const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender], ["__scopeId", "data-v-5f571374"]]);
+export {
+  index as default
+};
+//# sourceMappingURL=index.648afa0e.js.map

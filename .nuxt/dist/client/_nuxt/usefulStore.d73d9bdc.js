@@ -1,0 +1,1 @@
+import{y as s}from"./entry.538b082e.js";const i=s("usefulStore",{state:()=>({index:0,dataUseful:[]}),actions:{setIndex(t){this.index=t},async fetchUsefulData(){const e=await(await fetch("http://95.163.236.196:1337/api/useful-medias?populate=*")).json();this.dataUseful=e.data.map(a=>a.attributes)}},getters:{getUsefulData(){return this.dataUseful}}});export{i as u};
