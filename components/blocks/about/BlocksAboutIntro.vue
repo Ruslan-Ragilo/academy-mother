@@ -26,14 +26,18 @@ import '@fancyapps/ui/dist/fancybox.css'
 
   export default {
     setup () {
-      const gallery = [
-        {
-          src: "_nuxt/static/images/diploma.png"
+      function getArrIng () {
+        const arrImg = [];
+
+        for(let i = 1; i < 58; i++) {
+          arrImg.push({src: `_nuxt/assets/images/diploms/d${i}.jpeg`})
         }
-      ]
+
+        return arrImg
+      }
 
       function openFancyBox (e) {
-        Fancybox.show(gallery, {})
+        Fancybox.show(getArrIng(), {})
       }
 
       return {
