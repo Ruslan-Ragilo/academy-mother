@@ -36,8 +36,18 @@ import '@fancyapps/ui/dist/fancybox.css'
         return arrImg
       }
 
+      const options = {
+        Carousel: {
+          Navigation: {
+            nextTpl: '<svg style="background-color: #064848; padding: 5px; border-radius: 50%" xmlns="http://www.w3.org/2000/svg" width="25" height="13" viewBox="0 0 25 13" fill="yellow"><path d="M25 6.5L-5.68248e-07 13L9.7619 6.5L0 -1.09278e-06L25 6.5Z" fill="#fff"/>',
+            prevTpl: '<svg style="transform: rotate(180deg); background-color: #064848; padding: 5px; border-radius: 50%"xmlns="http://www.w3.org/2000/svg" width="25" height="13" viewBox="0 0 25 13" fill="yellow"><path d="M25 6.5L-5.68248e-07 13L9.7619 6.5L0 -1.09278e-06L25 6.5Z" fill="#fff"/>',
+          },
+        }
+      };
+
       function openFancyBox (e) {
-        Fancybox.show(getArrIng(), {})
+        Fancybox.show(getArrIng(), options)
+        
       }
 
       return {
