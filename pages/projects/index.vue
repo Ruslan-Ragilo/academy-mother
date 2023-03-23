@@ -2,9 +2,9 @@
   <div class="projects-page__container section-container">
     <blocks-projects-intro />
     <blocks-projects-repro id="repo" class="projects-page__project" />
-    <blocks-projects-meno id="meno" class="projects-page__project" />
+    <!-- <blocks-projects-meno id="meno" class="projects-page__project" />
     <blocks-projects-control id="control" class="projects-page__project" />
-    <blocks-projects-academy id="academy" />
+    <blocks-projects-academy id="academy" /> -->
   </div>
 </template>
 

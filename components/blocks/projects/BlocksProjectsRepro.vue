@@ -1,138 +1,81 @@
 <template>
-  <div class="project-block">
+  <div v-for="item in storeProjects.getProjects" class="project-block">
     <div class="project-block__about">
       <h2 class="project-block__about-title">
-        Персонализированный проект «Репро — оживи ячники»
+        {{ item.nameProject }}
       </h2>
       <div class="project-block__about-text">
-        Для тех, кто столкнулся со снижением овариального резерва и/или симптомами пременопаузы в процессе планирования беременности
-      </div>
-      <div class="project-block__about-additional">
-        <svg-soft-icon class="project-block__about-additional-background" />
-        <div class="project-block__about-additional-text">
-          Место проживания не является ограничением для участия
-        </div>
+        {{ item.descriptionProject }}
       </div>
       <svg-heart-icon class="project-block__about-heart-icon" />
       <svg-pine-icon class="project-block__about-pine-icon" />
     </div>
-    <div class="project-block__when-needed-block">
+    <div v-if="item.disclaimerProject" class="project-block__about-additional-info-text">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+        <circle cx="7.5" cy="7.5" r="7.5" fill="#644C5C"/>
+        <path d="M7.90502 5.39818V10H7.07502V5.39818H7.90502ZM7.5 3.9999C7.63667 3.9999 7.75333 4.03769 7.85 4.11327C7.95 4.18605 8 4.30082 8 4.45757C8 4.61152 7.95 4.72629 7.85 4.80187C7.75333 4.87745 7.63667 4.91524 7.5 4.91524C7.35667 4.91524 7.23667 4.87745 7.14 4.80187C7.04667 4.72629 7 4.61152 7 4.45757C7 4.30082 7.04667 4.18605 7.14 4.11327C7.23667 4.03769 7.35667 3.9999 7.5 3.9999Z" fill="#FEF8F2"/>
+      </svg>
+      <p>{{ item.disclaimerProject }}</p>
+      </div>
+    <div v-if="item.whenGo.length" class="project-block__when-needed-block">
       <h2 class="project-block__block-title">
         Когда стоит идти
       </h2>
       <div class="project-block__when-needed-list">
         <elements-iconed-item
-          v-for="item in tabsList"
+          v-for="item in item.whenGo"
           :icon-name="item.icon"
-          :icon-color="item.color"
           :text="item.text"
         />
       </div>
     </div>
-    <div class="project-block__what-inside-block">
+    <div v-if="item.whatInsides.length" class="project-block__what-inside-block">
       <h2 class="project-block__block-title">
         Что внутри?
       </h2>
-      <div class="project-block__what-inside-list">
-        <div class="project-block__what-inside-item">
-          <div class="project-block__what-inside-title">
-            Отдельный Telegram-чат
-          </div>
-          <div class="project-block__what-inside-text">
-            В течение 4-х недель в закрытом Telegram-канале будут выходить актуальные стратегические посты,
-            объясняющие всю тактику и возможности активации яичников
-          </div>
-          <svg-union class="project-block__what-inside-item-union" />
-        </div>
-        <div class="project-block__what-inside-item">
-          <div class="project-block__what-inside-title">
-            Персонализация
-          </div>
-          <div class="project-block__what-inside-text">
-            За время проекта вам необходимо будет сдать анализы и заполнить анкету. В течение 2-х недель после окончания
-            проекта каждая участница получит персональный протокол от доктора медицинских наук профессора акушера-гинеколога
-            Джобава Элисо Мурмановны. После его получения вы сможете 1 раз задать все интересующие вас вопросы по протоколу в ответном письме
+        <div :class="{'project-block__what-inside-list': item.whatInsides.length == 2, 'project-block__what-inside-list2': item.whatInsides.length == 3}">
+          <div v-for="item in item.whatInsides" class="project-block__what-inside-item">
+            <div class="project-block__what-inside-title">
+              {{ item.heading }}
+            </div>
+            <div class="project-block__what-inside-text">
+              {{ item.text }}
+            </div>
+            <!-- <svg-union class="project-block__what-inside-item-union" /> -->
           </div>
         </div>
-      </div>
     </div>
-    <div class="project-block__required-block">
+    <div v-if="item.analyzes.length" class="project-block__required-block">
       <h2 class="project-block__block-title">
         Какие анализы и обследования понадобятся?
       </h2>
       <div class="project-block__required-collapse-wrapper">
-        <elements-collapse class="project-block__required-collapse" title="Минимум">
+        <elements-collapse v-for="item in item.analyzes" class="project-block__required-collapse" :title="item.type">
           <ul class="project-block__required-list two-columns">
-            <li>— АМГ — антимюллеров гормон</li>
-            <li>— ФСГ — фолликулостимулирующий гормон</li>
-            <li>— ЛГ — лютеинизирующий гормон на 3−5 день цикла</li>
-            <li>— УЗИ малого таза с подсчетом числа антральных фолликулов в каждом яичнике на 5−7 день цикла</li>
-            <li>— Клинический анализ крови</li>
-            <li>— Общий анализ мочи</li>
-            <li>— ТТГ — тиреотропный гормон</li>
-            <li>— Пролактин</li>
-            <li>— Ферритин</li>
-            <li>— Трансферин</li>
-            <li>— Сывороточное железо</li>
-            <li>— Витамин Д25он</li>
-            <li>— Гомоцистеин</li>
-            <li>— Лактат</li>
-            <li>— ГГТ — гамма-глутамин-транспептидаза</li>
-            <li>— Общий белок</li>
-            <li>— Гликированный гемоглобин</li>
-            <li>— Мочевая кислота</li>
-            <li>— Эозинофильный катионный белок</li>
-            <li>— Иммуноглобулин Е</li>
-            <li>— Общий холестерин</li>
-            <li>— ЛПНП-липропротеиды низкой плотности</li>
-            <li>— С реактивный белок</li>
-            <li>— Д-димер</li>
-          </ul>
-        </elements-collapse>
-        <elements-collapse class="project-block__required-collapse" title="Оптимум">
-          <div class="project-block__required-collapse_subtitle">
-            Все анализы Минимума, плюс:
-          </div>
-          <ul class="project-block__required-list two-columns">
-            <li>— Т3 свободный</li>
-            <li>— Т4 свободный</li>
-            <li>— АТ-ТПО — антитела к тиреопероксидазе</li>
-            <li>— АТ-ТГ — антитела к тиреоглобулину</li>
-            <li>— Глюкоза крови</li>
-            <li>— Онкомаркер СА-125</li>
-            <li>— Окномаркер НЕ-4</li>
-            <li>— АЛТ — аланинаминотрансфераза</li>
-            <li>— АСТ — аспартатаминотрансфераза</li>
-            <li>— ЩФ — щелочная фосфатаза</li>
-            <li>— ЛПВП — липопротеиды высокой плотности</li>
-            <li>— Мочевина</li>
-            <li>— Креатинин</li>
-            <li>— АЧТВ — активированное частичное тромбопластиновое время</li>
-            <li>— Фибриноген</li>
-            <li>— АСЛО — антистрептолизин-О</li>
-            <li> — РФ — ревматоидный фактор</li>
-            <li>— Кальпротектин</li>
-            <li> — Копрограмма</li>
-          </ul>
-        </elements-collapse>
-        <elements-collapse class="project-block__required-collapse" title="Максимум">
-          <ul class="project-block__required-list two-columns">
-            <div class="project-block__required-collapse_subtitle">
-              Все анализы Оптимума плюс:
-            </div>
-            <li>— Тест эливисцеро-24</li>
+            <li v-html="item.text"></li>
           </ul>
         </elements-collapse>
       </div>
     </div>
-    <div class="project-block__additional-block">
-      <div class="project-block__additional-left-column">
+    <div v-if="item.imgSpeaker.data" class="project-block__additional-block">
+      <!-- <div class="project-block__additional-left-column"> -->
         <img class="project-block__additional-avatar" src="@/assets/images/ConsultationsPageDescPhoto.png" />
         <h3 class="project-block__additional-left-text">
-          Если вы уже приняли решение об ЭКО — наиболее эффективно будет войти в протокол в течение 2-6 месяцев после проекта
+          {{ item.flowStartText }}
         </h3>
-      </div>
-      <div class="project-block__additional-right-column">
+    </div>
+    <div v-if="!item.listTags" class="project-block__additional-block2">
+      <h3 class="project-block__additional-right-title">
+        Старт третьего потока — январь 2023
+      </h3>
+      <a
+        :href="item.linkBtnFlows"
+        class="project-block__additional-button-container"
+      >
+        <elements-buttons-secondary title="Записаться в лист ожидания" />
+      </a>
+    </div>
+      <!-- <div class="project-block__additional-right-column">
         <h3 class="project-block__additional-right-title">
           Старт третьего потока — январь 2023
         </h3>
@@ -143,12 +86,49 @@
           <elements-buttons-secondary title="Записаться в лист ожидания" />
         </a>
         <svg-almost-circle class="project-block__additional-almost-circle"/>
+      </div> -->
+    <!-- </div> -->
+    <div v-if="item.listTags" class="wrapper-tags">
+      <div class="project-block__additional-left-column">
+        <div v-if="item.listTags?.prevTagFlow" class="project-block__what-inside-title">
+          Прошедшие потоки 2022 года
+        </div>
+        <div class="project-block__tags-list">
+          <div v-for="item in item.listTags?.prevTagFlow" class="project-block__tag disabled">
+            {{ item }}
+          </div>
+        </div>
+        <div v-if="item.listTags?.planTagFlow" class="project-block__what-inside-title">
+          Планируются в 2023 году
+        </div>
+        <div class="project-block__tags-list">
+          <div v-for="item in item.listTags?.planTagFlow" class="project-block__tag">
+            {{ item }}
+          </div>
+        </div>
+      </div>
+      <div class="project-block__additional-right-column">
+        <h3 class="project-block__additional-right-title">
+          Оставьте заявку, чтобы первыми узнать о старте потока в новом году
+        </h3>
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSemeWdP_plcFlkOOFZ2NL5hMcyMMN9bWW2pc4OZkgZcLow8pA/viewform?usp=sharing"
+          class="project-block__additional-button-container"
+        >
+          <elements-buttons-secondary title="Записаться в лист ожидания" />
+        </a>
+        <svg-plus-icon class="project-block__additional-plus-icon"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+
+import {useProjectsStore} from '~~/stores/projectsStore'
+
+
+
 const tabsList = [
   {
     icon: 'heartIcon',
@@ -178,10 +158,18 @@ const tabsList = [
 ]
 
 export default {
+  props: {
+    data: {
+      type: Array,
+      default: null
+    }
+  },
   setup () {
-
+    const storeProjects = useProjectsStore();
+    storeProjects.fetchDataProjects()
     return {
-      tabsList
+      tabsList,
+      storeProjects
     }
   }
 }
@@ -189,8 +177,46 @@ export default {
 
 <style lang="scss" scoped>
   .project-block {
-    margin: 60px 0 0 0;
+    margin: 60px 0 80px 0;
     width: 100%;
+
+    .wrapper-tags {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__tags-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  &__tag {
+    background-color: #644C5C;
+    padding: 5px 15px;
+    border-radius: 23px;
+    color: #FEF8F2;
+    font-size: 16px;
+    margin: 0 10px 10px 0;
+    white-space: nowrap;
+
+    @media screen and (max-width: 680px) {
+      font-size: 14px;
+    }
+
+    &.disabled {
+      background-color: #C5B1B2;
+    }
+  }
+
+    &__additional-left-column,
+  &__additional-right-column {
+    width: calc((100% - 120px)/2);
+    @media screen and (max-width: 1200px) {
+      width: 100%;
+    }
+  }
+
 
     &__about {
       position: relative;
@@ -206,6 +232,21 @@ export default {
         padding: 60px 0 150px 0;
       }
     }
+
+    &__additional-block2 {
+    margin: 90px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: #064848;
+    border-radius: 15px;
+    padding: 40px;
+
+    @media screen and (max-width: 1200px) {
+      margin: 30px 0 0 0;
+    }
+  }
 
     &__about-title {
       color: #FEF8F2;
@@ -251,6 +292,27 @@ export default {
       height: 100%;
       fill: #644C5C;
     }
+
+    &__about-additional-info-text {
+      font-size: 14px;
+      line-height: 150%;
+      color: #232323;
+      margin-top: 20px;
+      max-width: 600px;
+      p {
+        margin: 0;
+        margin-left: 10px;
+      }
+
+      svg {
+        width: 25px;
+        height: 25px;
+      }
+
+      display: flex;
+      align-items: self-start;
+    }
+
 
     &__about-additional-text {
       padding: 0 20px;
@@ -333,10 +395,21 @@ export default {
       }
     }
 
+    &__what-inside-list2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 20px;
+      margin: 50px 0 0 0;
+
+      @media screen and (max-width: 1200px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
     &__what-inside-list {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-gap: 40px;
+      grid-gap: 20px;
       margin: 50px 0 0 0;
 
       @media screen and (max-width: 1200px) {
@@ -424,13 +497,22 @@ export default {
     }
 
     &__additional-block {
-      margin: 90px 0 0 0;
+      margin: 90px auto;
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      
+      max-width: 800px;
 
-      @media screen and (max-width: 1200px) {
-        flex-direction: column;
+      img {
+        width: 40%;
+        height: 40%;
+        margin: 10px auto;
+
+        @media screen and (max-width: 450px) {
+          width: 100%;
+        }
       }
     }
 
