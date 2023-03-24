@@ -5,6 +5,7 @@
     </h1>
     <div class="if-you-block__list">
       <Elements-iconed-item
+        :static="true"
         v-for="item in tabsList"
         :icon-name="item.icon"
         :icon-color="item.color"

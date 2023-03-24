@@ -1,16 +1,31 @@
 <template>
   <div class="if-item">
     <div class="if-item__icon-box">
-      <img :src="'http://95.163.236.196:1337' + iconName" alt="icon">
+      <component v-if="static" :is="iconName" :style="{fill: iconColor}" />
+      <img v-else :src="'http://95.163.236.196:1337' + iconName" alt="icon">
     </div>
     <div class="if-item__text" v-html="text" />
   </div>
 </template>
 
 <script>
+import almostCircle from '@/components/svg/almostCircle.vue'
+import SvgDiamondIcon from '@/components/svg/SvgDiamondIcon.vue'
+import SvgStarNine from '@/components/svg/SvgStarNine.vue'
+import SvgPineLeft from '@/components/svg/SvgPineLeft.vue'
+import SvgGex from '@/components/svg/SvgGex.vue'
+import SvgSoftIcon from '@/components/svg/SvgSoftIcon.vue'
+import heartIcon from '@/components/svg/heartIcon.vue'
+import SvgCheeseIcon from '@/components/svg/SvgCheeseIcon.vue'
+import star from '@/components/svg/star.vue'
+import union from '@/components/svg/union.vue'
 
   export default {
     props: {
+      static: {
+        type: Boolean,
+        default: false
+      },
       iconName: {
         type: String,
         default: ''
@@ -24,6 +39,19 @@
         default: ''
       }
     },
+
+    components: {
+      almostCircle,
+      SvgDiamondIcon,
+      SvgStarNine,
+      SvgPineLeft,
+      SvgGex,
+      SvgSoftIcon,
+      heartIcon,
+      SvgCheeseIcon,
+      star,
+      union
+    }
   }
 </script>
 
