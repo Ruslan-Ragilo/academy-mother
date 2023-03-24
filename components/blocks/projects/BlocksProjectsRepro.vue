@@ -24,7 +24,7 @@
       <div class="project-block__when-needed-list">
         <elements-iconed-item
           v-for="item in item.whenGo"
-          :icon-name="item.icon"
+          :icon-name="item.iconImg.data.attributes.url"
           :text="item.text"
         />
       </div>
@@ -86,7 +86,7 @@
           <elements-buttons-secondary title="Записаться в лист ожидания" />
         </a>
         <svg-almost-circle class="project-block__additional-almost-circle"/>
-      </div> -->
+      </div> -->                                                                            
     <!-- </div> -->
     <div v-if="item.listTags" class="wrapper-tags">
       <div class="project-block__additional-left-column">

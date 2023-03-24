@@ -101,6 +101,10 @@
       gap: 40px;
       justify-content: space-between;
 
+      img {
+        object-fit: contain;
+      }
+
       &_reversed {
 
         .workers-list__info-panel {

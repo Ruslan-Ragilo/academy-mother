@@ -104,7 +104,7 @@ const descriptionItems = [
     width: 100vw;
     height: 100%;
     background-color: rgba(0, 0, 0, .6);
-    position: absolute;
+    position: fixed;
     top: 0;
     display: flex;
     justify-content: center;
