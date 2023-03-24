@@ -5,6 +5,7 @@
     </h2>
     <div class="school-perks__list">
       <Elements-iconed-item
+        :static="true"
         v-for="item in tabsList"
         :icon-name="item.icon"
         :icon-color="item.color"
