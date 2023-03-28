@@ -1,12 +1,3 @@
-<script setup>
-  import { onMounted } from 'vue';
-  import { useSliderComand  } from '~/stores/sliderComand'
-  const sliderComand = useSliderComand();
-  onMounted(() => {
-    console.log('mounted');
-    sliderComand.fetchDataSliderComand();
-  })
-</script>
 <template>
   <div class="main-swiper">
     <svg-heart-icon class="main-swiper__heart" />
@@ -19,20 +10,17 @@
     </div>
     <div class="main-swiper__swiper-block">
       <swiper
-      :modules="modules"
+        :modules="modules"
         :navigation="{
-          prevEl: prevCom,
-          nextEl: nextCom,
+          prevEl: prevT,
+          nextEl: nextT,
         }"
-      :space-between="40"
-      :breakpoints="{ 1200:{ slidesPerView: 4}, 610:{ slidesPerView: 2 }, 0:{ slidesPerView: 1 } }"
-      class="swiper"
-      @swiper="onSwiper"
-      @slideChange="onSlideChange"
+        :space-between="40"
+        :breakpoints="{ 1200:{ slidesPerView: 4}, 610:{ slidesPerView: 2 }, 0:{ slidesPerView: 1 } }"
+        class="swiper"
       >
-        <swiper-slide v-for="(item, index) in sliderComand.getSliderComand">
+        <swiper-slide v-for="(item, index) in store.getSliderComand" :key="index">
           <elements-main-swiper-item
-            :key="index"
             :title="item.fullName"
             :text="item.title"
             :photo="'http://95.163.236.196:1337' + item.avatar.data.attributes.url"
@@ -42,16 +30,16 @@
           />
         </swiper-slide>
       </swiper>
-      <!-- <div ref="prev" class="swiper-button-prev nav-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="13" viewBox="0 0 25 13" fill="yellow">
-        <path d="M25 6.5L-5.68248e-07 13L9.7619 6.5L0 -1.09278e-06L25 6.5Z" fill="#fff"/>
-      </svg>
-    </div>
-    <div ref="next" class="swiper-button-next nav-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="13" viewBox="0 0 25 13" fill="red">
-        <path d="M25 6.5L-5.68248e-07 13L9.7619 6.5L0 -1.09278e-06L25 6.5Z" fill="#fff"/>
-      </svg>
-    </div> -->
+      <div ref="prevT" class="swiper-button-prev nav-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="13" viewBox="0 0 25 13" fill="yellow">
+          <path d="M25 6.5L-5.68248e-07 13L9.7619 6.5L0 -1.09278e-06L25 6.5Z" fill="#fff"/>
+        </svg>
+      </div>
+      <div ref="nextT" class="swiper-button-next nav-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="13" viewBox="0 0 25 13" fill="red">
+          <path d="M25 6.5L-5.68248e-07 13L9.7619 6.5L0 -1.09278e-06L25 6.5Z" fill="#fff"/>
+        </svg>
+      </div>
     </div>
     
   </div>
@@ -71,9 +59,16 @@
 <script>
 import { ref } from 'vue';
 import { Navigation } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/vue';
+import { useSliderComand  } from '~~/stores/sliderComand'
+
+// Import Swiper Vue.js components
+import  { Swiper, SwiperSlide } from 'swiper/vue';
+
+// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 
   export default {
@@ -91,36 +86,26 @@ import 'swiper/css/navigation';
         default: ''
       }
     },
-
-    setup() {
-
-      const onSwiper = (swiper) => {
-        console.log(swiper);
-      };
-      const onSlideChange = () => {
-        console.log('slide change');
-      };
-
-      // const prev = ref(null);
-      // const next = ref(null);
-      const prevCom = ref(null);
-      const nextCom = ref(null);
-      return {
-        onSwiper,
-        onSlideChange,
-        prevCom,
-        nextCom,
-        modules: [Navigation],
-      };  
-    },
-
     data() {
       return {
         modalInfo: {},
         isModalOpened: false
       }
     },
+    setup() {
+      const store = useSliderComand()
+      store.fetchDataSliderComand();
 
+      const prevT = ref(null);
+      const nextT = ref(null);
+      
+      return {
+        prevT,
+        nextT,
+        store,
+        modules: [Navigation],
+      };
+    },
     methods: {
       openModal (params) {
         console.log(params);

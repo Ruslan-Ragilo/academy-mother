@@ -21,7 +21,7 @@
             <path d="M25 6.5L-5.68248e-07 13L9.7619 6.5L0 -1.09278e-06L25 6.5Z" fill="#fff"/>
           </svg>
         </div>
-    </div>
+      </div>
     </div>
     <div ref="wrapperSlider" class="swiper">
       <swiper
@@ -125,16 +125,16 @@ let el = ref(null)
     },
     methods: {
       showDetails(e) {
-        if (e.currentTarget.parentNode.classList.contains('active')) {
+        if (e.currentTarget.parentNode?.classList.contains('active')) {
           window.scrollTo(0, this.posScroll)
-          e.currentTarget.parentNode.classList.remove('active')
+          e.currentTarget.parentNode?.classList.remove('active')
           return
         }
         if (el.value) {
-          el.value.classList.remove('active')
+          el.value?.classList.remove('active')
         }
         el.value = e.currentTarget.parentNode
-        e.currentTarget.parentNode.classList.add('active')
+        e.currentTarget.parentNode?.classList.add('active')
         this.posScroll = window.scrollY
       },
     },
@@ -150,9 +150,9 @@ let el = ref(null)
       
       watch(() => heightDetails.value.length, () => {
         heightDetails.value.forEach((element) => {
-          element.nextSibling.classList.remove('_active')
+          element.nextSibling?.classList.remove('_active')
           if(element.offsetHeight > 254) {
-            element.nextSibling.classList.add('_active')
+            element.nextSibling?.classList.add('_active')
           }
         })
       })
@@ -160,9 +160,9 @@ let el = ref(null)
         wrapperSlider.value.childNodes[0].children[0].style.transform = ''
         if(heightDetails?.value) {
           heightDetails?.value.forEach((element, i) => {
-            element.nextSibling.classList.remove('_active')
+            element.nextSibling?.classList.remove('_active')
           if(element.offsetHeight > 254) {
-            element.nextSibling.classList.add('_active')
+            element.nextSibling?.classList.add('_active')
           }
           }) 
         }
