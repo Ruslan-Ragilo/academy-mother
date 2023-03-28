@@ -9,7 +9,7 @@
     </div>
     <div class="sign-up-block__button-container">
       <div class="sign-up-block__button">
-        Записаться
+        <a href="https://wa.me/+79162964571">Записаться</a>
       </div>
     </div>
     <svg-almost-circle class="sign-up-block__almost-circle" />
@@ -61,6 +61,11 @@
       border-radius: 5px;
       padding: 18px 45px;
       font-size: 18px;
+
+      a {
+        color: #644C5C;
+        text-decoration: none;
+      }
 
       @media screen and (max-width: 680px) {
         font-size: 16px;

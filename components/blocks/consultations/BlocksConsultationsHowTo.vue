@@ -13,7 +13,9 @@
             По телефону или написать в WhatsApp
           </div>
           <div class="how-to-block__media-box">
-            <svg-media-phone class="how-to-block__media-icon" />
+            <a href="https://wa.me/+79162964571">
+              <svg-media-phone class="how-to-block__media-icon" />
+            </a>
             <svg-media-whats-app class="how-to-block__media-icon" />
           </div>
         </div>
