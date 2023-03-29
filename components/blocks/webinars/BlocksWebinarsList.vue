@@ -14,7 +14,7 @@
       <div style="margin-bottom: 80px;" v-for="item in webinars?.getDataWebinars[indexPopup]?.attributes?.popupInfo">
         <h2>{{ item?.title }}</h2>
         <p class="for-who">{{item?.subTitle }}</p>
-        <h2 style="margin-bottom: 20px;" v-if="item?.About?.length">О чем поговорим?</h2>
+        <h3 style="margin-bottom: 20px;" v-if="item?.About?.length">О чем поговорим?</h3>
         <ul class="list-about">
           <li class="about-webinars" v-for="item in item?.About?.split('—').slice(1, -1)">{{ item }}</li>
         </ul>
@@ -98,6 +98,21 @@
 
     @media screen and (max-width: 680px) {
       font-size: 22px;
+      line-height: 28px;
+      margin-right: 10px;
+    }
+  }
+  
+
+  h3 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 130%;
+    color: #78353E;
+
+    @media screen and (max-width: 680px) {
+      font-size: 20px;
       line-height: 28px;
       margin-right: 10px;
     }
