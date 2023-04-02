@@ -3,9 +3,9 @@
     <h2 class="school-program__title">
       Программа
     </h2>
-    <elements-collapse v-for="item in tabs" class="school-program__required-collapse" :title="item.title">
+    <elements-collapse v-for="(item, i) in tabs" :key="i" class="school-program__required-collapse" :title="item.title">
       <ul class="school-program__required-list">
-        <li v-for="element in item?.items">{{ element }}</li>
+        <li v-for="(element, ind) in item?.items" :key="ind">{{ element }}</li>
       </ul>
     </elements-collapse>
   </div>

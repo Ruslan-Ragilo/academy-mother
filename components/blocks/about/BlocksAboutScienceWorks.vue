@@ -4,7 +4,7 @@
       Научные работы и патенты
     </h2>
     <div class="about-science-works__works-list">
-      <a :href="item.link" class="about-science-works__item" v-for="item in worksList">
+      <a :href="item.link" class="about-science-works__item" v-for="(item, i) in worksList" :key="i">
         <div>
           <div class="about-science-works__item-year">
             {{ item?.year }}

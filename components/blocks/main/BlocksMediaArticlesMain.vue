@@ -7,7 +7,7 @@
       </nuxt-link>
     </div>
   <div class="wrapper-card">
-    <div v-for="item in store.geDataCardMedia.filter((_,i) => i < 2)" class="card">
+    <div v-for="(item, i) in store.geDataCardMedia.filter((_,i) => i < 2)" :key="i" class="card">
       <img :src="'http://95.163.236.196:1337' + item?.image?.data[0]?.attributes?.url" />
       <h3 class="heading-card">{{ item.heading }}</h3>
       <p class="title-card">{{ item.title }}</p>
@@ -18,20 +18,9 @@
 <script>
   import {useArticlesStore} from '~/stores/articles/articlesStore';
   export default {
-    data() {
-      return {
-        scrollSava: null
-      }
-    },
-    methods: {
-      saveScroll() {
-        console.log(window)
-      }
-    },
     setup() {
       const store = useArticlesStore();
       store.fetchDataCardMedia()
-      console.log(store.fetchDataCardMedia());
 
       return {
         store

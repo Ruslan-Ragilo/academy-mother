@@ -11,12 +11,12 @@
   <div @click.self="isOpenPopup = false" class="overlay__popup-webinars" :class="{active: isOpenPopup}">
     <div class="popup">
       <lazy-svg-close-popup class="close-popup" @click.native="isOpenPopup = false" />
-      <div style="margin-bottom: 80px;" v-for="item in webinars?.getDataWebinars[indexPopup]?.attributes?.popupInfo">
+      <div style="margin-bottom: 80px;" v-for="(item, i) in webinars?.getDataWebinars[indexPopup]?.attributes?.popupInfo" :key="i">
         <h2>{{ item?.title }}</h2>
         <p class="for-who">{{item?.subTitle }}</p>
         <h3 style="margin-bottom: 20px;" v-if="item?.About?.length">О чем поговорим?</h3>
         <ul class="list-about">
-          <li class="about-webinars" v-for="item in item?.About?.split('—').slice(1, -1)">{{ item }}</li>
+          <li class="about-webinars" v-for="(item, i) in item?.About?.split('—').slice(1, -1)" :key="i">{{ item }}</li>
         </ul>
       </div>
       <div class="block-author">
@@ -29,7 +29,7 @@
     </div>
   </div>
   <div v-if="webinars?.getDataWebinars?.length" class="webinars-list">
-    <div v-for="(item, index) in webinars.getDataWebinars" class="webinars-list__card">
+    <div v-for="(item, index) in webinars.getDataWebinars" :key="index" class="webinars-list__card">
       <div class="webinars-list__card-wrapper-img">
         <div class="discount" v-if="item.attributes.discount"><span>На {{ item.attributes.discount }}% выгоднее</span></div>
         <img :src="'http://95.163.236.196:1337' + item?.attributes?.image?.data?.attributes?.url" alt="Вебинар">

@@ -10,7 +10,9 @@ export const useArticlesStore = defineStore('articlesStore', {
   getters: {
     geDataCardMedia() {
       if (!this.isFullShow) {
-        window.scrollTo(0, this.scroll)
+        if(this.scroll) {
+          window.scrollTo(0, this.scroll)
+        }
         return this.dataCardMedia.filter((_, i) => i < 4)
       } else {
         this.scroll = window.scrollY

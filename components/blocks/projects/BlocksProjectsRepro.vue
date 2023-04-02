@@ -1,5 +1,5 @@
 <template>
-  <div v-for="item in storeProjects.getProjects" class="project-block">
+  <div v-for="(item, i) in storeProjects.getProjects" :key="i" class="project-block">
     <div class="project-block__about">
       <h2 class="project-block__about-title">
         {{ item.nameProject }}
@@ -23,7 +23,8 @@
       </h2>
       <div class="project-block__when-needed-list">
         <elements-iconed-item
-          v-for="item in item.whenGo"
+          v-for="(item, i) in item.whenGo"
+          :key="i"
           :icon-name="item.iconImg.data.attributes.url"
           :text="item.text"
         />
@@ -50,7 +51,7 @@
         Какие анализы и обследования понадобятся?
       </h2>
       <div class="project-block__required-collapse-wrapper">
-        <elements-collapse v-for="item in item.analyzes" class="project-block__required-collapse" :title="item.type">
+        <elements-collapse v-for="(item, i) in item.analyzes" :key="i" class="project-block__required-collapse" :title="item.type">
           <ul class="project-block__required-list two-columns">
             <li v-html="item.text"></li>
           </ul>
@@ -94,7 +95,7 @@
           Прошедшие потоки 2022 года
         </div>
         <div class="project-block__tags-list">
-          <div v-for="item in item.listTags?.prevTagFlow" class="project-block__tag disabled">
+          <div v-for="(item, i) in item.listTags?.prevTagFlow" :key="i" class="project-block__tag disabled">
             {{ item }}
           </div>
         </div>
@@ -102,7 +103,7 @@
           Планируются в 2023 году
         </div>
         <div class="project-block__tags-list">
-          <div v-for="item in item.listTags?.planTagFlow" class="project-block__tag">
+          <div v-for="(item, i) in item.listTags?.planTagFlow" :key="i" class="project-block__tag">
             {{ item }}
           </div>
         </div>

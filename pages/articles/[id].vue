@@ -2,7 +2,7 @@
     <div class="containerArticlesDetails">
         <div class="contentArticlesUseful">
             <h2>{{ store.getUsefulData[store.index]?.heading }}</h2>
-            <div v-for="item in store.getUsefulData[store.index]?.PageUsefulArticles">
+            <div v-for="(item, i) in store.getUsefulData[store.index]?.PageUsefulArticles" :key="i">
                 <h3>{{ item?.heading }}</h3>
                 <p>{{ item?.title }}</p>
             </div>

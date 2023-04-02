@@ -1,14 +1,20 @@
 <template>
   <h2 id="mediaArticles">Статьи в СМИ</h2>
   <div class="wrapper-card">
-    <div v-for="item in store.geDataCardMedia" class="card">
+    <div v-if="!isMain" v-for="(item, i) in store.geDataCardMedia" :key="i" class="card">
+      <img :src="'http://95.163.236.196:1337' + item?.image?.data[0]?.attributes?.url" />
+      <h3 class="heading-card">{{ item.heading }}</h3>
+      <p class="title-card">{{ item.title }}</p>
+      <elements-read-articles :href="item.link" class="btnRead" />
+    </div>
+    <div v-for="(item, i) in store.geDataCardMedia.splice(0, 2)" v-if="isMain" :key="i" class="card">
       <img :src="'http://95.163.236.196:1337' + item?.image?.data[0]?.attributes?.url" />
       <h3 class="heading-card">{{ item.heading }}</h3>
       <p class="title-card">{{ item.title }}</p>
       <elements-read-articles :href="item.link" class="btnRead" />
     </div>
   </div>
-  <elements-button-green class="btnFull" :isLink="false" @click.native="store.setIsFullShow">
+  <elements-button-green v-if="!isMain" class="btnFull" :isLink="false" @click.native="store.setIsFullShow">
     <template v-if="store.isFullShow">Скрыть</template>
     <template v-else>Показать все</template>
   </elements-button-green>
@@ -19,6 +25,12 @@
     data() {
       return {
         scrollSava: null
+      }
+    },
+    props: {
+      isMain: {
+        type: Boolean,
+        default: false
       }
     },
     methods: {

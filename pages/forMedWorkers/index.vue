@@ -14,7 +14,7 @@
         О чем поговорим?
       </h4>
       <ul class="med-workers-page__modal-list">
-        <li v-for="item in currentModalData?.popupMed.About.split('—').slice(1, -1)" class="med-workers-page__modal-item">
+        <li v-for="(item, i) in currentModalData?.popupMed.About.split('—').slice(1, -1)" :key="i" class="med-workers-page__modal-item">
           {{ item }}
         </li>
       </ul>

@@ -6,7 +6,8 @@
     <div class="if-you-block__list">
       <Elements-iconed-item
         :static="true"
-        v-for="item in tabsList"
+        v-for="(item, i) in tabsList"
+        :key="i"
         :icon-name="item.icon"
         :icon-color="item.color"
         :text="item.text"

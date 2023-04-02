@@ -23,7 +23,7 @@
   <div class="section-block section-container">
     <blocks-reviews-block :reviewsIsShow="true" heading="Мы уже помогли многим женщинам"/>
     <blocks-useful-articles-main />
-    <blocks-media-articles-main class="section-block" />
+    <blocks-media-articles :isMain="true" />
     <blocks-message-us class="section-block" />
   </div>
 </template>

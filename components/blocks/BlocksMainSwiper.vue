@@ -50,7 +50,7 @@
         {{ modalInfo.modalHeading}}
       </h3>
       <ul class="main-swiper__modal-list">
-        <li class="main-swiper__modal-item" v-for="item in modalInfo?.modalTitle?.split('—').slice(1, -1)">{{item}}</li>
+        <li class="main-swiper__modal-item" v-for="(item, i) in modalInfo?.modalTitle?.split('—').slice(1, -1)" :key="i">{{item}}</li>
       </ul>
     </div>
   </div>

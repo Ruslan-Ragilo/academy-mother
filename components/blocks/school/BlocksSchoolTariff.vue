@@ -37,7 +37,8 @@
     </div>
     <div v-if="activeTab === 1" class="school-tariff__packages-list">
       <div
-        v-for="item in packages"
+        v-for="(item, i) in packages"
+        :key="i"
         class="school-tariff__package-item"
       >
         <div>
@@ -47,10 +48,10 @@
           <div class="school-tariff__package-title">
             {{ item?.title }}
           </div>
-          <div v-for="programObject in item.program" class="school-tariff__package-program">
+          <div v-for="(programObject, i) in item.program" :key="i" class="school-tariff__package-program">
             {{ programObject.label }}
             <ul class="school-tariff__package-program-list">
-              <li v-for="programItem in programObject?.items" class="school-tariff__package-program-item">
+              <li v-for="(programItem, i) in programObject?.items" :key="i" class="school-tariff__package-program-item">
                 {{ programItem }}
               </li>
             </ul>
@@ -88,7 +89,7 @@
       </div>
     </div>
     <div v-else class="school-tariff__trimester-list">
-      <div v-for="trimester in trimesters" class="school-tariff__trimester-item">
+      <div v-for="(trimester, i) in trimesters" :key="i" class="school-tariff__trimester-item">
         <div class="school-tariff__trimester-left-column">
           <div class="school-tariff__trimester-title-wrapper">
             <div class="school-tariff__package-label">
@@ -109,10 +110,10 @@
           </div>
         </div>
         <div class="school-tariff__trimester-right-column">
-          <div v-for="programObject in trimester.program" class="school-tariff__package-program">
+          <div v-for="(programObject, i) in trimester.program" :key="i" class="school-tariff__package-program">
             {{ programObject.label }}
             <ul class="school-tariff__package-program-list">
-              <li v-for="programItem in programObject?.items" class="school-tariff__package-program-item">
+              <li v-for="(programItem, i) in programObject?.items" :key="i" class="school-tariff__package-program-item">
                 {{ programItem }}
               </li>
             </ul>

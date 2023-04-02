@@ -5,6 +5,7 @@
     </h2>
     <div
       v-for="(item, index) in data"
+      :key="index"
       :class="{
         'workers-list__card': true,
         'workers-list__card_reversed': index % 2 === 1

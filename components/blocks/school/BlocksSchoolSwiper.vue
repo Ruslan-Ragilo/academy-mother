@@ -8,7 +8,7 @@
         :space-between="40"
         :breakpoints="{ 1200:{ slidesPerView: 4}, 680:{ slidesPerView: 2 }, 0:{ slidesPerView: 1 } }"
       >
-        <swiper-slide v-for="item in slidesArray">
+        <swiper-slide v-for="(item, i) in slidesArray" :key="i">
           <elements-main-swiper-item
             :title="item.title"
             :text="item.text"
@@ -25,7 +25,7 @@
       {{ modalInfo?.title }}
     </h3>
     <ul class="main-swiper__modal-list">
-      <li class="main-swiper__modal-item" v-for="item in modalInfo.items" v-html="item" />
+      <li class="main-swiper__modal-item" v-for="(item, i) in modalInfo.items" :key="i" v-html="item" />
     </ul>
   </elements-modals-keeper>
 </template>

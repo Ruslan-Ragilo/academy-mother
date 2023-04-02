@@ -25,7 +25,7 @@
       },
     }"
   >
-    <swiper-slide class="slide" v-for="item in store.dataSwiper"> 
+    <swiper-slide class="slide" v-for="(item,i) in store.dataSwiper" :key="i"> 
       <div class="slide-card">
         <p class="year">{{ item.year }}</p>
         <h2>{{ item.heading }}</h2>

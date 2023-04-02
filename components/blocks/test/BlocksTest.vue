@@ -6,7 +6,7 @@
           {{ getCurrentQuestion?.question }}
         </h2>
         <div class="modal-test__answers">
-          <div class="modal-test__answer-item" v-for="answer in getCurrentQuestion?.answers">
+          <div class="modal-test__answer-item" v-for="(answer, i) in getCurrentQuestion?.answers" :key="i">
             <input
               class="modal-test__input-radio"
               :id="answer?.id"
@@ -30,7 +30,7 @@
           Подходящие вам продукты:
         </h2>
         <ul>
-          <li v-html="option.label" class="modal-test__option-item" v-for="option in getResult?.options">
+          <li v-html="option.label" class="modal-test__option-item" v-for="(option, i) in getResult?.options" :key="i">
           </li>
         </ul>
       </div>

@@ -17,7 +17,7 @@
             О чем поговорим?
           </h4>
           <ul class="guides__modal-list">
-            <li v-for="item in currentModalData?.popupGuide.About.split('—').slice(1, -1)" class="guides__modal-item">
+            <li v-for="(item, i) in currentModalData?.popupGuide.About.split('—').slice(1, -1)" :key="i" class="guides__modal-item">
               {{ item }}
             </li>
           </ul>
@@ -29,7 +29,7 @@
             {{ currentModalData?.guideEats.About }}
           </div>
           </div>
-          <div v-for="item in currentModalData?.authorGuide" class="guides__author-block">
+          <div v-for="(item, i) in currentModalData?.authorGuide" :key="i" class="guides__author-block">
             <img class="guides__author-image" :src="'http://95.163.236.196:1337' + item.avatar.data.attributes.url" />
             <div class="guides__about-author">
               <div class="guides__author-label">

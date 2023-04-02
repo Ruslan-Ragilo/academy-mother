@@ -4,7 +4,7 @@
       Образование
     </h2>
     <div class="about-education__list">
-      <div class="about-education__list-item" v-for="item in itemArray">
+      <div class="about-education__list-item" v-for="(item, i) in itemArray" :key="i">
         <h4 class="about-education__item-year">
           {{ item?.year }}
         </h4>

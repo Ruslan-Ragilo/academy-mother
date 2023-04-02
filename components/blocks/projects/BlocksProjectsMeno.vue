@@ -25,7 +25,8 @@
       </h2>
       <div class="project-block__when-needed-list">
         <elements-iconed-item
-          v-for="item in tabsList"
+          v-for="(item, i) in tabsList"
+          :key="i"
           :icon-name="item.icon"
           :icon-color="item.color"
           :text="item.text"

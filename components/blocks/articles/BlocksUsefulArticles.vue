@@ -1,16 +1,16 @@
 <template>
   <h2 class="heading  usefulMedia">Полезные статьи</h2>
   <div class="wrapper">
-    <div v-for="(item, index) in store.getUsefulData" class="cardArticles">
+    <div v-for="(item, index) in store.getUsefulData" :key="index" class="cardArticles">
       <img :src="`http://95.163.236.196:1337${item.image?.data[0].attributes?.url}`"/>
       <h2>{{ item.heading }}</h2>
       <p>{{ item.title }}</p>
-      <a @click.prevent="goTo(item.heading, index)" :href="item.href">Читать статью</a>
+      <a class="link" @click.prevent="goTo(item.heading, index)" :href="item.href">Читать статью</a>
     </div>
   </div>
 </template>
 <script>
-  import {useUsefulStore} from '~~/stores/articles/usefulStore';
+import {useUsefulStore} from '~~/stores/articles/usefulStore';
   export default {
     data() {
       return {
@@ -27,15 +27,20 @@
     beforeMount() {
       if(sessionStorage.getItem('setSroll')) {
         this.scrollTo = Number(sessionStorage.getItem('setSroll'));
+        setTimeout(() => {
+          window?.scrollTo(0, this.scrollTo)
+        }, 10);
         sessionStorage.clear()
       }
     },
     mounted () {
-      if (this.scrollTo) {
-        setTimeout(() => {
+      setTimeout(() => {
+        console.log(this.scrollTo);
+        if (this.scrollTo) {
+          console.log('scroll');
           window.scrollTo(0, this.scrollTo)
-        })
-      }
+        } 
+      }, 500)
     },
     methods: {
       goTo(str, index) {
@@ -133,6 +138,7 @@
       font-size: 16px;
       text-decoration-line: underline;
       color: #064848;
+      cursor: pointer;
     }
   }
 </style>

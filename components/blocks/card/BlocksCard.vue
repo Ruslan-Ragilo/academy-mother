@@ -8,11 +8,11 @@
     <div class="popup-content">
       <h3>Вы узнаете:</h3>
       <ul>
-        <li v-for="itemList in data[indexForPopup]?.popupProgram?.About?.split('—').slice(1, -1)"><p>{{itemList}}</p></li>
+        <li v-for="(itemList, i) in data[indexForPopup]?.popupProgram?.About?.split('—').slice(1, -1)" :key="i"><p>{{itemList}}</p></li>
       </ul>
     </div>
   </elements-popup>
-  <div v-for="(item, index) in data" class="wrapper-card">
+  <div v-for="(item, index) in data" :key="index" class="wrapper-card">
     <section class="border"></section>
     <div class="img-card-wrapper">
       <blocks-img-card :link="item.image.data.attributes.url"/>

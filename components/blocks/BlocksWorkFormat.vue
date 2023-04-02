@@ -8,6 +8,7 @@
         class="work-format__item"
         :to="item.link"
         v-for="(item, index) in tabs"
+        :key="index"
       >
         <img
           :class="{

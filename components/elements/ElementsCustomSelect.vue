@@ -28,7 +28,8 @@
       <div>
         <div
           class="custom-select__list-item"
-          v-for="item in items"
+          v-for="(item, i) in items"
+          :key="i"
           @click="selectItem(item)"
         >
           {{ item?.label }}

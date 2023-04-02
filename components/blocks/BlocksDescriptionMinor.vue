@@ -9,7 +9,7 @@
           {{ title }}
         </h2>
         <ul class="minor-description__list">
-          <li v-for="item in listItems" class="minor-description__list-item">
+          <li v-for="(item, i) in listItems" :key="i" class="minor-description__list-item">
             {{ item }}
           </li>
         </ul>

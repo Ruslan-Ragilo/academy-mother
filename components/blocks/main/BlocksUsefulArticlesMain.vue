@@ -7,7 +7,7 @@
       </nuxt-link>
   </div>
   <div class="wrapper">
-    <div v-for="(item, index) in store.getUsefulData.filter((_, i) => i < 3)" class="cardArticles">
+    <div v-for="(item, index) in store.getUsefulData.filter((_, i) => i < 3)" :key="index" class="cardArticles">
       <img :src="`http://95.163.236.196:1337${item.image?.data[0].attributes?.url}`"/>
       <h2>{{ item.heading }}</h2>
       <p>{{ item.title }}</p>
@@ -37,11 +37,13 @@
       }
     },
     mounted () {
-      if (this.scrollTo) {
-        setTimeout(() => {
+      setTimeout(() => {
+        console.log(this.scrollTo);
+        if (this.scrollTo) {
+          console.log('scroll');
           window.scrollTo(0, this.scrollTo)
-        })
-      }
+        } 
+      })
     },
     methods: {
       goTo(str, index) {
@@ -168,6 +170,7 @@
       font-size: 16px;
       text-decoration-line: underline;
       color: #064848;
+      cursor: pointer;
     }
   }
 </style>
