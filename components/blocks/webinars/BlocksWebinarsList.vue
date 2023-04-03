@@ -52,6 +52,7 @@
           </div>
           <button>Купить программу</button>
         </div>
+        <elements-special-offer v-if="item.attributes.specOffer" :text="item.attributes.specOffer" />
       </div>
       <section></section>
     </div>

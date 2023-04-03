@@ -38,10 +38,7 @@
             Купить программу
           </div>
         </div>
-        <div v-if="item?.specOffer" class="workers-list__additional">
-          {{ item?.specOffer }}
-          (преобрести можно <nuxt-link to="/webinars">тут</nuxt-link>)
-        </div>
+        <elements-special-offer v-if="item?.specOffer" :text="item?.specOffer" />
       </div>
     </div>
   </div>
