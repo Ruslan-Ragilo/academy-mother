@@ -50,7 +50,7 @@
         {{ modalInfo.modalHeading}}
       </h3>
       <ul class="main-swiper__modal-list">
-        <li class="main-swiper__modal-item" v-for="(item, i) in modalInfo?.modalTitle?.split('—').slice(1, -1)" :key="i">{{item}}</li>
+        <li class="main-swiper__modal-item" v-html="modalInfo?.modalTitle" :key="i"></li>
       </ul>
     </div>
   </div>
@@ -108,7 +108,6 @@ import 'swiper/css/scrollbar';
     },
     methods: {
       openModal (params) {
-        console.log(params);
         this.modalInfo = { ...params }
         this.switchModal()
       },
@@ -256,16 +255,18 @@ import 'swiper/css/scrollbar';
     }
 
     &__modal-item {
-      font-size: 14px;
-      color: #232323;
-      margin: 0 0 5px 0;
-
-      &:before {
-          content:  "—";
-          position: relative;
-          left: -5px;
-          bottom: 1px;
+      &::v-deep(p) {
+        font-size: 14px;
+        color: #232323;
+        margin: 0 0 5px 0;
       }
+
+      // &:before {
+      //     content:  "—";
+      //     position: relative;
+      //     left: -5px;
+      //     bottom: 1px;
+      // }
     }
   }
 </style>

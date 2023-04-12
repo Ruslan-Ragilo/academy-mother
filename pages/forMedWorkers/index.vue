@@ -36,8 +36,8 @@
         <h3 class="med-workers-page__modal-title">Данный информационный сайт предназначен исключительно для медицинских работников</h3>
         <p v-html="contentPopup?.text "></p>
         <div class="wrapperBtn">
-          <button @click="isOpemAgreement = false">Соглашаюсь</button>
-          <button @click="isOpemAgreement = false">Не соглашаюсь</button>
+          <button class="link" @click="isOpemAgreement = false">Соглашаюсь</button>
+          <NuxtLink to="/webinars" class="link">Не соглашаюсь</NuxtLink>
         </div>
       </div>
     </div>
@@ -57,46 +57,38 @@ const descriptionItems = [
 ]
 
   export default {
-    
-
-    setup () {
-      
-      const contentPopup = {
-        text: "Вся информация сайта <a href='#'>www.---.ru</a> (далее — Информация) может быть доступна исключительно для специалистов системы здравоохранения. В связи с этим для доступа к такой Информации от вас требуется подтверждение вашего статуса и факта наличия у вас профессионального медицинского образования, а также того, что вы являетесь действующим медицинским работником, обладающим соответствующими знаниями и навыками в области медицины, диагностики и здравоохранения РФ. Информация, содержащаяся на настоящем сайте, предназначена исключительно для ознакомления, носит научно-информационный характер и не должна расцениваться в качестве Информации рекламного характера для широкого круга лиц.<br><br> Информация не должна быть использована для замены непосредственной консультации с врачом и для принятия решения о применении лекарственных препаратов самостоятельно.<br><br> На основании вышесказанного, пожалуйста, подтвердите, что вы являетесь действующим медицинским работником, либо иным работником системы здравоохранения."
-      }
-      const isOpemAgreement = ref(false);
-      const isModalOpened = ref(false)
-      const store = useForMedWork();
-      store.fetchDataMedWor()
-
-      onMounted(() => {
-        isOpemAgreement.value = true
-      })
-
-      const currentModalData = ref(null)
-
-      function switchModal () {
-        isModalOpened.value = !isModalOpened.value
-      }
-
-      function openModal (data) {
-        currentModalData.value = data
-        switchModal()
-      }
-
-      return {
-        descriptionItems,
-        isOpemAgreement,
-        descriptionTitle,
-        isModalOpened,
-        currentModalData,
-        switchModal,
-        openModal,
-        store,
-        contentPopup
-      }
-    }
-  }
+    setup() {
+        const contentPopup = {
+            text: "Вся информация сайта <a href='/formedworkers'>www.---.ru</a> (далее — Информация) может быть доступна исключительно для специалистов системы здравоохранения. В связи с этим для доступа к такой Информации от вас требуется подтверждение вашего статуса и факта наличия у вас профессионального медицинского образования, а также того, что вы являетесь действующим медицинским работником, обладающим соответствующими знаниями и навыками в области медицины, диагностики и здравоохранения РФ. Информация, содержащаяся на настоящем сайте, предназначена исключительно для ознакомления, носит научно-информационный характер и не должна расцениваться в качестве Информации рекламного характера для широкого круга лиц.<br><br> Информация не должна быть использована для замены непосредственной консультации с врачом и для принятия решения о применении лекарственных препаратов самостоятельно.<br><br> На основании вышесказанного, пожалуйста, подтвердите, что вы являетесь действующим медицинским работником, либо иным работником системы здравоохранения."
+        };
+        const isOpemAgreement = ref(false);
+        const isModalOpened = ref(false);
+        const store = useForMedWork();
+        store.fetchDataMedWor();
+        onMounted(() => {
+            isOpemAgreement.value = true;
+        });
+        const currentModalData = ref(null);
+        function switchModal() {
+            isModalOpened.value = !isModalOpened.value;
+        }
+        function openModal(data) {
+            currentModalData.value = data;
+            switchModal();
+        }
+        return {
+            descriptionItems,
+            isOpemAgreement,
+            descriptionTitle,
+            isModalOpened,
+            currentModalData,
+            switchModal,
+            openModal,
+            store,
+            contentPopup
+        };
+    },
+}
 </script>
 
 <style lang="scss" scoped>
@@ -150,16 +142,18 @@ const descriptionItems = [
         gap: 20px;
       }
 
-      button {
+      .link {
         cursor: pointer;
         font-size: 18px;
         font-weight: 600;
         padding: 18px 0;
+        text-align: center;
         color: #FEF8F2;
         width: 205px;
         background-color: #064848;
         border: none;
         border-radius: 5px;
+        text-decoration: none;
 
         @media screen and (max-width: 690px) {
           padding: 17px 0;

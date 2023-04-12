@@ -4,6 +4,7 @@
       Специалистам и медработникам
     </h2>
     <div
+    :id="linkTransform?.methods?.linkTransform(item.heading)"
       v-for="(item, index) in data"
       :key="index"
       :class="{
@@ -45,6 +46,8 @@
 </template>
 
 <script>
+import linkTransform from '~~/components/scripts/ConvertsAnchor';
+
 
   export default {
     props: {
@@ -67,7 +70,8 @@
       }
 
       return {
-        openModal
+        openModal,
+        linkTransform
       }
     }
   }

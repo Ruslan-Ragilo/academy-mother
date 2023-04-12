@@ -5,22 +5,32 @@
         Проекты
       </h2>
       <div class="projects-page__page-navigations-list">
-        <nuxt-link to="/projects#repo" class="projects-page__navigation-item">
-          Репро — оживи ячники
-        </nuxt-link>
-        <nuxt-link to="/projects#meno" class="projects-page__navigation-item">
-          Мено — оживи яичники
-        </nuxt-link>
-        <nuxt-link to="/projects#academy" class="projects-page__navigation-item">
-          Академия здоровой жизни
-        </nuxt-link>
-        <nuxt-link to="/projects#control" class="projects-page__navigation-item">
-          Контроль эстрогенов
+        <nuxt-link v-for="item in  storeProjects.getProjects" :to="'/projects#' + linkTransform?.methods?.linkTransform(item.nameProject)" class="projects-page__navigation-item">
+          {{item.nameProject.slice(item.nameProject.search('«') + 1, -1)}}
         </nuxt-link>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+import linkTransform from '~~/components/scripts/ConvertsAnchor';
+
+export default {
+  props: {
+    storeProjects: {
+      type: Object,
+      default: null
+    }
+  },
+  setup() {
+    return {
+      linkTransform
+    }
+  }
+
+}
+</script>
 
 <style lang="scss" scoped>
 .projects-page {

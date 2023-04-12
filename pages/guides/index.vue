@@ -120,7 +120,6 @@ export default {
 
     function openModal (item) {
       currentModalData.value = item
-      console.log(currentModalData);
       switchModal()
     }
 

@@ -30,7 +30,8 @@
           Подходящие вам продукты:
         </h2>
         <ul>
-          <li v-html="option.label" class="modal-test__option-item" v-for="(option, i) in getResult?.options" :key="i">
+          <li class="modal-test__option-item item-res" v-for="(option, i) in getResult?.options" :key="i">
+            <span v-if="option.label" v-html="option.label"></span> <NuxtLink v-html="option.linkText" :to="option.link"></NuxtLink>
           </li>
         </ul>
       </div>
@@ -39,7 +40,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 
 const questions = [
   {
@@ -220,13 +221,9 @@ const results = [
     id: 1,
     options: [
       {
-        label: 'Вебинар <a class="item-res" href="/webinars">«Бесплодие. Целостный взгляд <br> на проблему. Как оптимально достичь <br> родов</a>'
-      },
-      {
-        label: 'Вебинар <a class="item-res" href="/webinars">«Авторские протоколы ведения <br> беременности групп высокого риска. <br> Обоснованные индивидуализированные <br> стратегии за рамками стандартов»</a>'
-      },
-      {
-        label: '<a class="item-res" href="formedworkers">ПАКЕТ ВЕБИНАРОВ ДЛЯ ВРАЧЕЙ</a>'
+        label: '',
+        linkText: 'ПАКЕТ ВЕБИНАРОВ ДЛЯ ВРАЧЕЙ',
+        link: '/formedworkers'
       }
     ]
   },
@@ -234,19 +231,29 @@ const results = [
     id: 2,
     options: [
       {
-        label: '<a class="item-res" href="/school">Школа беременных</a>'
+        label: '',
+        linkText: 'Школа беременных',
+        link: '/school'
       },
       {
-        label: 'Гайд <a class="item-res" href="/guides">"ОРЗ при беременности"</a>'
+        label: 'Гайд ',
+        linkText: '"ОРЗ при беременности"',
+        link: '/guides#metodichka-«ostrye-respiratornye-zabolevaniya-i-beremennost»'
       },
       {
-        label: 'Вебинар <a class="item-res" href="/webinars">"Анализы и обследования во<br> время беременности"</a>'
+        label: 'Вебинар ',
+        linkText: '"Анализы и обследования во<br> время беременности"',
+        link: '/webinars#vebinar-«analizy-i-obsledovaniya-vo-vremya-beremennosti»'
       },
       {
-        label: 'Вебинар <a class="item-res" href="/webinars">"ГСД"</a>'
+        label: 'Вебинар ',
+        linkText: '"ГСД"',
+        link: '/webinars#vebinar-«uglevodnye-narusheniya-vo-vremya-beremennosti-gestacionnyy-saharnyy-diabet»'
       },
       {
-        label: '<a class="item-res" href="/guides">Гайд по питанию</a>'
+        label: '',
+        linkText: 'Гайд по питанию',
+        link: '/guides#gayd-po-pitaniyu-beremennyh-+-kniga-receptov'
       }
     ]
   },
@@ -254,7 +261,9 @@ const results = [
     id: 3,
     options: [
       {
-        label: 'ВЕБИНАР <a class="item-res" href="/webinars">"КОНТРАЦЕПЦИЯ"</a>'
+        label: 'ВЕБИНАР ',
+        linkText: '"КОНТРАЦЕПЦИЯ"',
+        link: '/webinars#vebinar-«kontracepciya-vybor-metoda,-obsledovanie,-soprovozhdenie»'
       },
     ]
   },
@@ -262,10 +271,14 @@ const results = [
     id: 4,
     options: [
       {
-        label: 'ВЕБИНАР <a class="item-res" href="/webinars">"ЕСЛИ ДОЛГО НЕ НАСТУПАЕТ <br> БЕРЕМЕННОСТЬ"</a><br>'
+        label: 'ВЕБИНАР ',
+        linkText: '"ЕСЛИ ДОЛГО НЕ НАСТУПАЕТ <br> БЕРЕМЕННОСТЬ"<br>',
+        link: '/webinars#vebinar-«esli-dolgo-ne-nastupaet-beremennost:-instrukciya-po-resheniyu-problemy»'
       },
       {
-        label: 'ПРОЕКТ <a class="item-res" href="/projects">"РЕПРО ОЖИВИ ЯИЧНИКИ</a>'
+        label: 'ПРОЕКТ ',
+        linkText: '"РЕПРО ОЖИВИ ЯИЧНИКИ"',
+        link: '/projects#personalizirovannyy-proekt-«repro-—-ozhivi-yachniki»'
       },
     ]
   },
@@ -273,10 +286,14 @@ const results = [
     id: 5,
     options: [
       {
-        label: 'ВЕБИНАР <a class="item-res" href="/webinars">"ЧТО ДЕЛАТЬ, ЕСЛИ БЫЛИ <br> ПОТЕРИ"</a><br>'
+        label: 'ВЕБИНАР ',
+        linkText: '"ЧТО ДЕЛАТЬ, ЕСЛИ БЫЛИ <br> ПОТЕРИ"<br>',
+        link: '/webinars#vebinar-«chto-delat-esli,-esli-byli-poteri-beremennosti?-pravilnye-shagi-na-puti-k-schastlivomu-materinstvu'
       },
       {
-        label: 'ПАКЕТ ВЕБИНАРОВ <a class="item-res" href="/webinars">"ПОДГОТОВКА К <br> БЕРЕМЕННОСТИ"</a><br>'
+        label: 'ПАКЕТ ВЕБИНАРОВ ',
+        linkText: '"ПОДГОТОВКА К <br> БЕРЕМЕННОСТИ"<br>',
+        link: '/webinars#vebinar-«podgotovka-k-beremennosti,-2-v-1»'
       },
     ]
   },
@@ -284,7 +301,9 @@ const results = [
     id: 6,
     options: [
       {
-        label: 'ПАКЕТ ВЕБИНАРОВ <a class="item-res" href="/webinars">"ПОДГОТОВКА К БЕРЕМЕННОСТИ"</a>'
+        label: 'ПАКЕТ ВЕБИНАРОВ ',
+        linkText: '"ПОДГОТОВКА К БЕРЕМЕННОСТИ"',
+        link: '/webinars#vebinar-«podgotovka-k-beremennosti,-2-v-1»'
       }
     ]
   },
@@ -292,10 +311,14 @@ const results = [
     id: 7,
     options: [
       {
-        label: 'ВЕБИНАР <a class="item-res" href="/webinars">"КОНТРАЦЕПЦИЯ"</a>'
+        label: 'ВЕБИНАР ',
+        linkText: '"КОНТРАЦЕПЦИЯ"',
+        link: '/webinars#vebinar-«kontracepciya-vybor-metoda,-obsledovanie,-soprovozhdenie»'
       },
       {
-        label: 'ПРОЕКТ <a class="item-res" href="/projects">"ОЖИВИ ЯИЧНИКИ - МЕНО"</a>'
+        label: 'ПРОЕКТ ',
+        linkText: '"ОЖИВИ ЯИЧНИКИ - МЕНО"',
+        link: '/projects#personalizirovannyy-proekt-«meno-—-ozhivi-yaichniki»'
       }
     ]
   },
@@ -303,7 +326,9 @@ const results = [
     id: 8,
     options: [
       {
-        label: 'ВЕБИНАР <a class="item-res" href="/webinars">"КОНТРАЦЕПЦИЯ"</a>'
+        label: 'ВЕБИНАР ',
+        linkText: '"КОНТРАЦЕПЦИЯ"',
+        link: '/webinars#vebinar-«kontracepciya-vybor-metoda,-obsledovanie,-soprovozhdenie»'
       }
     ]
   },
@@ -311,7 +336,9 @@ const results = [
     id: 9,
     options: [
       {
-        label: '<a class="item-res" href="/articles">СТАТЬИ С ХЕШТЕГОМ МЕНОПАУЗА</a>'
+        label: '',
+        linkText: 'СТАТЬИ С ХЕШТЕГОМ МЕНОПАУЗА',
+        link: '/articles'
       }
     ]
   }
@@ -338,6 +365,10 @@ const results = [
 
       const getResult = computed(() => {
         return results.find((item) => item.id === showResult.value)
+      })
+
+      onMounted(() => {
+        console.log('update');
       })
 
       function closePopup () {

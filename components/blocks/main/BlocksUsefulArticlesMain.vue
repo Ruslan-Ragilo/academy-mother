@@ -38,9 +38,7 @@
     },
     mounted () {
       setTimeout(() => {
-        console.log(this.scrollTo);
         if (this.scrollTo) {
-          console.log('scroll');
           window.scrollTo(0, this.scrollTo)
         } 
       })

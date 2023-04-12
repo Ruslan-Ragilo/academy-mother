@@ -1,5 +1,5 @@
 <template>
-  <div v-for="(item, i) in storeProjects.getProjects" :key="i" class="project-block">
+  <div :id="linkTransform?.methods?.linkTransform(item.nameProject)" v-for="(item, i) in storeProjects.getProjects" :key="i" class="project-block">
     <div class="project-block__about">
       <h2 class="project-block__about-title">
         {{ item.nameProject }}
@@ -113,7 +113,7 @@
           Оставьте заявку, чтобы первыми узнать о старте потока в новом году
         </h3>
         <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSemeWdP_plcFlkOOFZ2NL5hMcyMMN9bWW2pc4OZkgZcLow8pA/viewform?usp=sharing"
+          :href="item.linkBtnFlows"
           class="project-block__additional-button-container"
         >
           <elements-buttons-secondary title="Записаться в лист ожидания" />
@@ -125,8 +125,8 @@
 </template>
 
 <script>
+import linkTransform from '~~/components/scripts/ConvertsAnchor';
 
-import {useProjectsStore} from '~~/stores/projectsStore'
 
 
 
@@ -163,14 +163,17 @@ export default {
     data: {
       type: Array,
       default: null
+    },
+    storeProjects: {
+      type: Object,
+      default: null
     }
   },
   setup () {
-    const storeProjects = useProjectsStore();
-    storeProjects.fetchDataProjects()
+
     return {
       tabsList,
-      storeProjects
+      linkTransform
     }
   }
 }

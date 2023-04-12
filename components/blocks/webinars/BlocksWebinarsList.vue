@@ -1,12 +1,3 @@
-<script setup>
-  import { onMounted } from 'vue';
-  import { useWebinarsStore } from '~/stores/webinarsStore'
-  const webinars = useWebinarsStore();
-  onMounted(() => {
-    webinars.fetchDataWebinars();
-  })
-  
-</script>
 <template>
   <div @click.self="isOpenPopup = false" class="overlay__popup-webinars" :class="{active: isOpenPopup}">
     <div class="popup">
@@ -16,7 +7,7 @@
         <p class="for-who">{{item?.subTitle }}</p>
         <h3 style="margin-bottom: 20px;" v-if="item?.About?.length">О чем поговорим?</h3>
         <ul class="list-about">
-          <li class="about-webinars" v-for="(item, i) in item?.About?.split('—').slice(1, -1)" :key="i">{{ item }}</li>
+          <li class="about-webinars" v-html="item?.About"></li>
         </ul>
       </div>
       <div class="block-author">
@@ -28,8 +19,8 @@
       </div>
     </div>
   </div>
-  <div v-if="webinars?.getDataWebinars?.length" class="webinars-list">
-    <div v-for="(item, index) in webinars.getDataWebinars" :key="index" class="webinars-list__card">
+  <div class="webinars-list">
+    <div :id="linkTransform.methods.linkTransform(item.attributes.heading)" v-for="(item, index) in webinars.getDataWebinars" :key="index" class="webinars-list__card">
       <div class="webinars-list__card-wrapper-img">
         <div class="discount" v-if="item.attributes.discount"><span>На {{ item.attributes.discount }}% выгоднее</span></div>
         <img :src="'http://95.163.236.196:1337' + item?.attributes?.image?.data?.attributes?.url" alt="Вебинар">
@@ -59,6 +50,10 @@
   </div>
 </template>
 <script> 
+import { onBeforeMount } from 'vue';
+import { useWebinarsStore } from '~/stores/webinarsStore'
+import linkTransform from '~~/components/scripts/ConvertsAnchor';
+
   export default {
     data() {
       return {
@@ -74,6 +69,16 @@
         this.indexPopup = index;
       }
     },
+    setup() {
+        const webinars = useWebinarsStore();
+        onBeforeMount(() => {
+          webinars.fetchDataWebinars()
+        })
+      return {
+        linkTransform,
+        webinars
+      }
+    }
   }
 </script>
 
@@ -243,12 +248,12 @@
         margin-right: 0;
         list-style: none;
 
-        &:before {
-            content:  "—";
-            position: relative;
-            left: -5px;
-            bottom: 1px;
-        }
+        // &:before {
+        //     content:  "—";
+        //     position: relative;
+        //     left: -5px;
+        //     bottom: 1px;
+        // }
 
         @media screen and (max-width: 680px) {
           font-size: 15px;

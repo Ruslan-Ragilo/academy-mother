@@ -11,11 +11,9 @@ export const useGuidesStore = defineStore('guidesStore', {
   },
   actions: {
     async fetchDataGuides() {
-      console.log('fetch');
       const res = await fetch(import.meta.env.VITE_URL_API + '/api/guides?populate=deep');
       const data = await res.json()
       this.dataGuides = data.data.map(el => el.attributes)
-      console.log(this.dataGuides);
     }
   }
 })

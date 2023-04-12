@@ -1,13 +1,26 @@
 <template>
   <div class="projects-page__container section-container">
-    <blocks-projects-intro />
-    <blocks-projects-repro id="repo" class="projects-page__project" />
+    <blocks-projects-intro :storeProjects="storeProjects" />
+    <blocks-projects-repro :storeProjects="storeProjects" id="repo" class="projects-page__project" />
     <!-- <blocks-projects-meno id="meno" class="projects-page__project" />
     <blocks-projects-control id="control" class="projects-page__project" />
     <blocks-projects-academy id="academy" /> -->
   </div>
 </template>
+<script>
+import { useProjectsStore } from '~~/stores/projectsStore';
 
+  export default {
+    setup () {
+      const storeProjects = useProjectsStore();
+      storeProjects.fetchDataProjects()
+
+      return {
+        storeProjects
+      }
+    }
+  }
+</script>
 <style lang="scss" scoped>
   .projects-page {
 

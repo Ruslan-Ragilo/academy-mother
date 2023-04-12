@@ -33,15 +33,9 @@
         default: false
       }
     },
-    methods: {
-      saveScroll() {
-        console.log(window)
-      }
-    },
     setup() {
       const store = useArticlesStore();
       store.fetchDataCardMedia()
-      console.log(store.fetchDataCardMedia());
 
       return {
         store

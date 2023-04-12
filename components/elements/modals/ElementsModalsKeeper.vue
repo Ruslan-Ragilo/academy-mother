@@ -27,7 +27,6 @@
 
       watch(props, () => {
         if (props.isModalOpened === true) {
-          console.log(document.getElementsByTagName("BODY")[0].overflow)
           document.getElementsByTagName("BODY")[0].style.overflowY = 'hidden'
         } else {
           document.getElementsByTagName("BODY")[0].style.overflowY = 'scroll'
