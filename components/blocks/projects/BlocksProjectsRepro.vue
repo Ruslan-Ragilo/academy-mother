@@ -52,6 +52,9 @@
       </h2>
       <div class="project-block__required-collapse-wrapper">
         <elements-collapse v-for="(item, i) in item.analyzes" :key="i" class="project-block__required-collapse" :title="item.type">
+          <div v-if="item.subText" class="project-block__required-collapse_subtitle">
+            {{ item.subText }}
+          </div>
           <ul class="project-block__required-list two-columns">
             <li v-html="item.text"></li>
           </ul>
