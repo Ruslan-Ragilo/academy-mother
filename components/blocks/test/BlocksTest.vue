@@ -237,7 +237,7 @@ const results = [
       },
       {
         label: 'Гайд ',
-        linkText: '"ОРЗ при беременности"',
+        linkText: 'Методичка «Острые респираторные заболевания и беременность»',
         link: '/guides#metodichka-«ostrye-respiratornye-zabolevaniya-i-beremennost»'
       },
       {
@@ -246,13 +246,13 @@ const results = [
         link: '/webinars#vebinar-«analizy-i-obsledovaniya-vo-vremya-beremennosti»'
       },
       {
-        label: 'Вебинар ',
-        linkText: '"ГСД"',
+        label: 'Пакет Вебинар ',
+        linkText: '«Гестационный сахарный диабет» + Гайд по питанию и книга рецептов',
         link: '/webinars#vebinar-«uglevodnye-narusheniya-vo-vremya-beremennosti-gestacionnyy-saharnyy-diabet»'
       },
       {
         label: '',
-        linkText: 'Гайд по питанию',
+        linkText: 'Гайд по питанию беременных + книга рецептов',
         link: '/guides#gayd-po-pitaniyu-beremennyh-+-kniga-receptov'
       }
     ]
@@ -262,7 +262,7 @@ const results = [
     options: [
       {
         label: 'ВЕБИНАР ',
-        linkText: '"КОНТРАЦЕПЦИЯ"',
+        linkText: '«Контрацепция. Выбор метода, обследование, сопровождение»',
         link: '/webinars#vebinar-«kontracepciya-vybor-metoda,-obsledovanie,-soprovozhdenie»'
       },
     ]
@@ -272,11 +272,11 @@ const results = [
     options: [
       {
         label: 'ВЕБИНАР ',
-        linkText: '"ЕСЛИ ДОЛГО НЕ НАСТУПАЕТ <br> БЕРЕМЕННОСТЬ"<br>',
+        linkText: '«Если долго не наступает беременность: <br /> инструкция по решению проблемы»',
         link: '/webinars#vebinar-«esli-dolgo-ne-nastupaet-beremennost:-instrukciya-po-resheniyu-problemy»'
       },
       {
-        label: 'ПРОЕКТ ',
+        label: 'Персонализированный проект ',
         linkText: '"РЕПРО ОЖИВИ ЯИЧНИКИ"',
         link: '/projects#personalizirovannyy-proekt-«repro-—-ozhivi-yachniki»'
       },
@@ -287,12 +287,12 @@ const results = [
     options: [
       {
         label: 'ВЕБИНАР ',
-        linkText: '"ЧТО ДЕЛАТЬ, ЕСЛИ БЫЛИ <br> ПОТЕРИ"<br>',
+        linkText: '«Что делать если, если были <br /> потери беременности? <br /> Правильные шаги на пути к счастливому материнству"',
         link: '/webinars#vebinar-«chto-delat-esli,-esli-byli-poteri-beremennosti?-pravilnye-shagi-na-puti-k-schastlivomu-materinstvu'
       },
       {
         label: 'ПАКЕТ ВЕБИНАРОВ ',
-        linkText: '"ПОДГОТОВКА К <br> БЕРЕМЕННОСТИ"<br>',
+        linkText: '«Подготовка к <br /> беременности, 2 в 1»',
         link: '/webinars#vebinar-«podgotovka-k-beremennosti,-2-v-1»'
       },
     ]
@@ -302,7 +302,7 @@ const results = [
     options: [
       {
         label: 'ПАКЕТ ВЕБИНАРОВ ',
-        linkText: '"ПОДГОТОВКА К БЕРЕМЕННОСТИ"',
+        linkText: '«Подготовка к <br /> беременности, 2 в 1»',
         link: '/webinars#vebinar-«podgotovka-k-beremennosti,-2-v-1»'
       }
     ]
@@ -312,12 +312,12 @@ const results = [
     options: [
       {
         label: 'ВЕБИНАР ',
-        linkText: '"КОНТРАЦЕПЦИЯ"',
+        linkText: '«Контрацепция. Выбор метода, обследование, сопровождение»',
         link: '/webinars#vebinar-«kontracepciya-vybor-metoda,-obsledovanie,-soprovozhdenie»'
       },
       {
-        label: 'ПРОЕКТ ',
-        linkText: '"ОЖИВИ ЯИЧНИКИ - МЕНО"',
+        label: 'Персонализированный проект ',
+        linkText: '"РЕПРО ОЖИВИ ЯИЧНИКИ"',
         link: '/projects#personalizirovannyy-proekt-«meno-—-ozhivi-yaichniki»'
       }
     ]
@@ -327,7 +327,7 @@ const results = [
     options: [
       {
         label: 'ВЕБИНАР ',
-        linkText: '"КОНТРАЦЕПЦИЯ"',
+        linkText: '«Контрацепция. Выбор метода, обследование, сопровождение»',
         link: '/webinars#vebinar-«kontracepciya-vybor-metoda,-obsledovanie,-soprovozhdenie»'
       }
     ]
