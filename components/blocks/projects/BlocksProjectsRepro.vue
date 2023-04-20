@@ -25,7 +25,7 @@
         <elements-iconed-item
           v-for="(item, i) in item.whenGo"
           :key="i"
-          :icon-name="item.iconImg.data.attributes.url"
+          :icon-name="item.iconImg.data?.attributes.url"
           :text="item.text"
         />
       </div>
@@ -34,13 +34,11 @@
       <h2 class="project-block__block-title">
         Что внутри?
       </h2>
-        <div :class="{'project-block__what-inside-list': item.whatInsides.length == 2, 'project-block__what-inside-list2': item.whatInsides.length == 3}">
+        <div :class="[{'project-block__what-inside-list': item.whatInsides.length == 2}, {'project-block__what-inside-list2': item.whatInsides.length == 3}, 'mt']">
           <div v-for="item in item.whatInsides" class="project-block__what-inside-item">
-            <div class="project-block__what-inside-title">
-              {{ item.heading }}
+            <div v-html="item.heading" class="project-block__what-inside-title">
             </div>
-            <div class="project-block__what-inside-text">
-              {{ item.text }}
+            <div v-html="item.text" class="project-block__what-inside-text">
             </div>
             <!-- <svg-union class="project-block__what-inside-item-union" /> -->
           </div>
@@ -75,6 +73,7 @@
       <a
         :href="item.linkBtnFlows"
         class="project-block__additional-button-container"
+        target="_blank"
       >
         <elements-buttons-secondary title="Записаться в лист ожидания" />
       </a>
@@ -118,6 +117,7 @@
         <a
           :href="item.linkBtnFlows"
           class="project-block__additional-button-container"
+          target="_blank"
         >
           <elements-buttons-secondary title="Записаться в лист ожидания" />
         </a>
@@ -406,18 +406,20 @@ export default {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-gap: 20px;
-      margin: 50px 0 0 0;
 
       @media screen and (max-width: 1200px) {
         grid-template-columns: 1fr;
       }
     }
 
+    .mt {
+      margin-top: 50px;
+    }
+
     &__what-inside-list {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-gap: 20px;
-      margin: 50px 0 0 0;
 
       @media screen and (max-width: 1200px) {
         grid-template-columns: 1fr;

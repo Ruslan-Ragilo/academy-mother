@@ -260,13 +260,6 @@ import 'swiper/css/scrollbar';
         color: #232323;
         margin: 0 0 5px 0;
       }
-
-      // &:before {
-      //     content:  "—";
-      //     position: relative;
-      //     left: -5px;
-      //     bottom: 1px;
-      // }
     }
   }
 </style>

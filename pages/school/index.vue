@@ -13,7 +13,7 @@
     <blocks-school-tariff id="schoolTariff" class="section-block" />
     <blocks-school-perks class="section-block" />
     <div style="width: 100%;" id="schoolExperts">
-      <blocks-main-swiper headingSlider="Эксперты Школы беременности" />
+      <blocks-main-swiper headingSlider="Эксперты Школы беременных" />
     </div>
     <blocks-school-questions class="section-block" />
     <blocks-reviews-block heading="Мы уже помогли многим женщинам"/>

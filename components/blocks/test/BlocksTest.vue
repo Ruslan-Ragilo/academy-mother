@@ -221,9 +221,19 @@ const results = [
     id: 1,
     options: [
       {
+        label: 'Вебинар',
+        linkText: '«Бесплодие. Целостный взгляд на проблему. Как оптимально достичь родов»',
+        link: '/formedworkers#vebinar-«besplodie-celostnyy-vzglyad-na-problemu-kak-optimalno-dostich-rodov»'
+      },
+      {
+        label: 'Вебинар',
+        linkText: '«Авторские протоколы ведения беременности групп высокого риска. Обоснованные индивидуализированные стратегии за рамками стандартов»',
+        link: '/formedworkers#vebinar-«avtorskie-protokoly-vedeniya-beremennosti-grupp-vysokogo-riska-obosnovannye-individualizirovannye-strategii-za-ramkami-standartov»'
+      },
+      {
         label: '',
         linkText: 'ПАКЕТ ВЕБИНАРОВ ДЛЯ ВРАЧЕЙ',
-        link: '/formedworkers'
+        link: '/formedworkers#paket-dlya-specialistov-'
       }
     ]
   },
